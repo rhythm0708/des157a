@@ -1,0 +1,105 @@
+/* Resets */
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, p, nav ul {
+    margin: 0;
+    padding: 5px;
+}
+   
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+   
+nav ul {
+    list-style-type: none;
+}
+
+/* Typography */
+
+header h1 {
+    font-family: "Miriam Libre", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+header h2, footer h2 {
+    font-family: "Miriam Libre", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+main .scroll-title {
+    font-family: "Mochiy Pop One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+main ul li a {
+    font-family: "Miriam Libre", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Colors */
+
+header, footer {
+    background-color: #003049;
+}
+
+header #sub-header {
+    background-color: #004C7B;
+}
+
+header h1, header h2, footer h2 {
+    color: #669BBC;
+}
+
+header #title-hover {
+    color: #BC9F66;
+}
+
+body, main {
+    background-color: #906E4C;
+}
+
+main .scroll {
+    background-color: #DDA15E;
+}
+
+main #studios {
+    color: #DB7070;
+}
+
+main #experiments {
+    color: #5696E2;
+}
+
+main #r-and-d {
+    color: #90E67B;
+}
+
+main #final {
+    color: #CBDE7E;
+}
+
+/* Navigation */
+
+/* Margins and Padding */
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Styling */
+
+/* Responsive Design */
+
+@media only screen and (min-width: 600px) {
+    
+}
