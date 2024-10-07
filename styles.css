@@ -19,24 +19,42 @@ nav ul {
     list-style-type: none;
 }
 
+nav ul li a {
+    text-decoration: none;
+}
+
 /* Typography */
 
 header h1 {
     font-family: "Miriam Libre", sans-serif;
     font-weight: 700;
     font-style: normal;
+
+    font-size: 24px;
 }
 
-header h2, footer h2 {
+header h2 {
     font-family: "Miriam Libre", sans-serif;
     font-weight: 400;
     font-style: normal;
+
+    font-size: 16px;
+}
+
+footer h2, footer a {
+    font-family: "Miriam Libre", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: 16px;
 }
 
 main .scroll-title {
     font-family: "Mochiy Pop One", sans-serif;
     font-weight: 400;
     font-style: normal;
+
+    font-size: 18px;
 }
 
 main ul li a {
@@ -55,7 +73,7 @@ header #sub-header {
     background-color: #004C7B;
 }
 
-header h1, header h2, footer h2 {
+header h1, header h2, footer h2, footer a {
     color: #669BBC;
 }
 
@@ -71,12 +89,20 @@ main .scroll {
     background-color: #DDA15E;
 }
 
+main .scroll a {
+    color: black;
+}
+
+main .scroll a:visited {
+    color: inherit;
+}
+
 main #studios {
     color: #DB7070;
 }
 
 main #experiments {
-    color: #5696E2;
+    color: #669BBC;
 }
 
 main #r-and-d {
@@ -87,19 +113,197 @@ main #final {
     color: #CBDE7E;
 }
 
+footer a:visited {
+    color: inherit;
+}
+
+.fa-star {
+    color: #BC9F66;
+}
+
+.fa-envelope {
+    color: #669BBC;
+}
+
 /* Navigation */
+
+ul {
+    list-style-type: none;
+    padding-left: 1.5em;
+}
+
+ul li a, footer a {
+    text-decoration: none;
+}
 
 /* Margins and Padding */
 
-main {
+header #header-title {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.5em;
+    gap: 1em;
+
+    padding: 1.6em 1em;
 }
 
-/* Styling */
+header #sub-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 0.5em;
+}
+
+header #sub-header h2:first-child {
+    text-align: left;
+    flex-grow: 1;
+}
+
+header #sub-header h2:last-child {
+    text-align: right;
+    flex-grow: 0;
+}
+
+header #title-hover {
+    letter-spacing: 0.5em;
+}
+
+main {
+    padding: 3em 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+main .scroll {
+    padding: 1.5em 1em;
+    width: 100%;
+
+    text-align: center;
+}
+
+main .scroll-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+main .scroll ul {
+    line-height: 2em;
+    padding-left: 0px;
+}
+
+main .scroll ul li a:hover {
+    padding-left: 10px;
+}
+
+main .torch-container {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    padding: 1.25em 1.5em;
+
+    line-height: 1.4em;
+}
+
+footer .fa-envelope {
+    letter-spacing: 0.5em;
+}
+
+footer #footer-msg {
+    display: flex;
+    align-items: center;
+}
+
+footer .fa-star {
+    padding-bottom: 0.2em;
+}
+
+footer #email {
+    display: flex;
+    align-items: center;
+}
+
+footer #right-footer h2:hover {
+    transform: translateY(-0.25em);
+}
 
 /* Responsive Design */
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 750px) {
+
+    /* Typography */
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    header h2, footer h2, footer a {
+        font-size: 16px;
+    }
+
+    /* Margins and Padding */
+
+    main {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: stretch;
+        gap: 0px;
+
+        padding: 4.5em 8em;
+    }    
+
+    main .scroll {
+        flex-grow: 1;
+        width: 20%;
+        text-align: left;
+    }
+
+    main .scroll-header {
+        justify-content: left;
+    }
+
+    main .scroll-header img {
+        /*width: 50px;*/
+        padding-right: 0.3em;
+    }
+
+    main .scroll ul {
+        padding-left: 24px;
+        white-space: nowrap;
+    }
+
+    main .scroll-header img {
+        height: 1em;
+        width: auto;
+    }
+
+    main .torch-container {
+        width: 20%;
+    }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    footer #left-footer {
+        flex-grow: 1;
+    }
     
+    footer #right-footer {
+        flex-grow: 0;
+        text-align: right;
+    }
 }

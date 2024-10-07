@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas' DES157A Portal Page</title>
 
-    <!-- Stylesheet-->
-    <link rel="stylesheet" href="styles.css">
-
     <!-- Normalize.css -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <!-- Stylesheet-->
+    <link rel="stylesheet" href="styles.css">
 
     <!-- Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +21,10 @@
 </head>
 <body>
     <header>
-        <h1>Portal to</h1>
-        <h1 id="title-hover"> D E S 1 5 7 A </h1>
+        <div id="header-title">
+            <h1>Portal to</h1>
+            <h1 id="title-hover"> DES157A</h1>
+        </div>
 
         <div id="sub-header">
             <h2>Projects for DES157A - Interactive Media II</h2>
@@ -32,10 +34,11 @@
     
     <main>
         <div class="scroll">
-            <h2 class="scroll-title" id="studios">
-                <image src="images/fire-sym.png" alt="fire symbol"></image>
-                Studios
-            </h2>
+            <div class="scroll-header">
+                <img src="images/fire-sym.png" alt="fire symbol">
+                <h2 class="scroll-title" id="studios">Studios</h2>
+            </div>
+            
             <ul>
                 <li><a href="">Learning Journal</a></li>
                 <li><a href="">Mad Libs 2.0</a></li>
@@ -43,23 +46,27 @@
                 <li><a href="">Game On!</a></li>
             </ul>
 
-            <h2 class="scroll-title" id="experiments">
-                <image src="images/water-sym.png" alt="water symbol"></image>
-                Experiments
-            </h2>
+            <div class="scroll-header">
+                <img src="images/water-sym.png" alt="water symbol">
+                <h2 class="scroll-title" id="experiments">Experiments</h2>
+            </div>
+            
             <ul>
                 <li><a href="exp/exp1.html">Experiment 1</a></li>
                 <li><a href="exp/exp2.html">Experiment 2</a></li>
             </ul>
         </div>
 
-        <img src="images/torch.png" alt="torch">
+        <div class="torch-container">
+            <img src="images/torch.png" alt="torch">
+        </div>  
 
         <div class="scroll">
-            <h2 class="scroll-title" id="r-and-d">
-                <image src="images/wind-sym.png" alt="wind symbol"></image>
-                R&D
-            </h2>
+            <div class="scroll-header">
+                <img src="images/wind-sym.png" alt="wind symbol">
+                <h2 class="scroll-title" id="r-and-d">R&D</h2>
+            </div>
+
             <ul>
                 <li><a href="">Project Brief</a></li>
                 <li><a href="">Project Improvements</a></li>
@@ -67,13 +74,16 @@
             </ul>
         </div>
 
-        <img src="images/torch.png" alt="torch">
-
+        <div class="torch-container">
+            <img src="images/torch.png" alt="torch">
+        </div>
+        
         <div class="scroll">
-            <h2 class="scroll-title" id="final">
-                <image src="images/electric-sym.png" alt="electric symbol"></image>
-                Final
-            </h2>
+            <div class="scroll-header">
+                <img src="images/electric-sym.png" alt="electric symbol">
+                <h2 class="scroll-title" id="final">Final</h2>
+            </div>
+            
             <ul>
                 <li><a href="">Final Project</a></li>
             </ul>
@@ -81,11 +91,22 @@
     </main>
 
     <footer>
-        <h2>Page by Lucas Wang (@rhythm07)</h2>
-        <h2>Like what you see? Let's talk (star)</h2>
-
-        <i class="fa-regular fa-envelope"></i> <h2><a href="&#099;&#119;&#119;&#097;&#110;&#103;&#048;&#051;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;" alt="my e-mail address">&#099;&#119;&#119;&#097;&#110;&#103;&#048;&#051;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a></h2>
-        <h2><a href="" alt="an external link to my portfolio or LinkedIn">another external link</a></h2>
+        <div id="left-footer">
+            <h2>Page by Lucas Wang (@rhythm07)</h2>
+            <div id="footer-msg">
+                <h2>Like what you see? Let's talk! </h2>
+                <i class="fa-regular fa-star"></i>
+            </div>
+        </div>
+        
+        <div id="right-footer">
+            <div id="email">
+                <i class="fa-regular fa-envelope"></i>
+                <h2><a href="&#099;&#119;&#119;&#097;&#110;&#103;&#048;&#051;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#099;&#119;&#119;&#097;&#110;&#103;&#048;&#051;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a></h2>
+            </div>
+            
+            <h2><a href="">(another external link)</a></h2>
+        </div>
     </footer>
 </body>
 </html>
