@@ -86,7 +86,10 @@ body, main {
 }
 
 main .scroll {
-    background-color: #DDA15E;
+    /*background-color: #DDA15E;*/
+    background-image: url("images/scroll.png");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 main .scroll a {
