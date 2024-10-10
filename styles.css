@@ -77,7 +77,7 @@ header h1, header h2, footer h2, footer a {
     color: #669BBC;
 }
 
-header #title-hover {
+header #title-anim {
     color: #BC9F66;
 }
 
@@ -139,7 +139,7 @@ ul li a, footer a {
     text-decoration: none;
 }
 
-/* Margins and Padding */
+/* Layout */
 
 header #header-title {
     display: flex;
@@ -169,7 +169,7 @@ header #sub-header h2:last-child {
     flex-grow: 0;
 }
 
-header #title-hover {
+header #title-anim {
     letter-spacing: 0.5em;
 }
 
@@ -242,6 +242,27 @@ footer #right-footer h2:hover {
     transform: translateY(-0.25em);
 }
 
+/* Animation */
+
+header #title-anim {
+    animation: flyInFromTop 3s linear forwards;
+}
+
+@keyframes flyInFromTop {
+    0% {
+        transform: translateY(-2em);
+    }
+    65% {
+        transform: translateY(0em);
+    }
+    85% {
+        transform: translateY(-0.025em);
+    }
+    100% {
+        transform: translateY(0em);
+    }
+}
+
 /* Responsive Design */
 
 @media only screen and (min-width: 750px) {
@@ -278,7 +299,6 @@ footer #right-footer h2:hover {
     }
 
     main .scroll-header img {
-        /*width: 50px;*/
         padding-right: 0.3em;
     }
 
