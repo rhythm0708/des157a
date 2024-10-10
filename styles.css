@@ -245,19 +245,19 @@ footer #right-footer h2:hover {
 /* Animation */
 
 header #title-anim {
-    animation: flyInFromTop 3s linear forwards;
+    animation: flyInFromTop 2s linear forwards;
 }
 
 @keyframes flyInFromTop {
     0% {
         transform: translateY(-2em);
     }
-    65% {
+    /*65% {
         transform: translateY(0em);
     }
     85% {
-        transform: translateY(-0.025em);
-    }
+        transform: translateY(-0.05em);
+    }*/
     100% {
         transform: translateY(0em);
     }
