@@ -88,6 +88,7 @@ body, main {
 main .scroll {
     /*background-color: #DDA15E;*/
     background-image: url("images/scroll.png");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -184,7 +185,6 @@ main {
 main .scroll {
     padding: 1.5em 1em;
     width: 100%;
-
     text-align: center;
 }
 
@@ -192,12 +192,17 @@ main .scroll-header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5px;
+    padding-top: 0.5em;
+    margin-bottom: 0.25em;
 }
 
 main .scroll ul {
     line-height: 2em;
     padding-left: 0px;
+}
+
+main .scroll ul:last-of-type {
+    padding-bottom: 2em;
 }
 
 main .scroll ul li a:hover {
@@ -214,10 +219,8 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-
-    padding: 1.25em 1.5em;
-
     line-height: 1.4em;
+    padding: 1.25em 1.5em;
 }
 
 footer .fa-envelope {
@@ -252,12 +255,6 @@ header #title-anim {
     0% {
         transform: translateY(-2em);
     }
-    /*65% {
-        transform: translateY(0em);
-    }
-    85% {
-        transform: translateY(-0.05em);
-    }*/
     100% {
         transform: translateY(0em);
     }
@@ -304,6 +301,10 @@ header #title-anim {
 
     main .scroll ul {
         padding-left: 24px;
+        
+    }
+
+    main .scroll ul .overflow {
         white-space: nowrap;
     }
 
