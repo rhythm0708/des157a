@@ -48,6 +48,15 @@ main #articles
     font-style: normal;
 }
 
+#search-bar
+{
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: 14px;
+}
+
 #folders
 {
     font-family: "VT323", monospace;
@@ -55,25 +64,42 @@ main #articles
     font-style: normal;
 }
 
-footer
+footer h3
 {
     font-family: "VT323", monospace;
-    font-weight: 400;
+    font-weight: 600;
     font-style: normal;
 
-    font-size: 14px;
+    font-size: 17px;
 }
 /* Colors */
 
 header
 {
-    background-color: lightblue;
+    /*background-color: #97ECF1;*/
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(151,236,241,1)70%);
+}
+
+#top-icons
+{
+    background-color: #3290FF;
+}
+
+#top-icons ion-icon
+{
+    color: white;
+}
+
+#folders ion-icon
+{
+    background-color: #FEFF9D;
 }
 
 main
 {
-    background: rgb(149,216,230);
-    background: linear-gradient(0deg, rgba(149,216,230,1) 0%, rgba(255,255,255,1) 100%);
+    background: rgb(223,253,255);
+    background: linear-gradient(0deg, rgba(223,253,255,1) 0%, rgba(255,255,255,1) 50%);
 }
 
 main #articles
@@ -83,7 +109,9 @@ main #articles
 
 footer
 {
-    background: rgb(149,216,230);
+    /*background: #97ECF1;*/
+    background: rgb(151,236,241);
+    background: linear-gradient(0deg, rgba(151,236,241,1) 0%, rgba(223,253,255,1) 100%);
 }
 
 /* Navigation */
@@ -101,7 +129,11 @@ header
     text-align: center;
 
     padding: 1em 0em;
-    margin-bottom: 40px;
+}
+
+header h1
+{
+    padding-top: 10px;
 }
 
 main
@@ -110,7 +142,8 @@ main
     flex-direction: column;
     align-items: center;
 
-    padding-bottom: 18px;
+    padding-top: 8px;
+    padding-bottom: 31px;
 }
 
 main #top-icons
@@ -131,7 +164,7 @@ main #search
     gap: 20px;
 
     border: 1px solid black;
-    padding: 2.5px 0px;
+    padding: 5px 0px;
 }
 
 main #search-bar
@@ -159,7 +192,7 @@ main #articles
 {
     border: 1px solid black;
 
-    padding: 30px 100px 30px;
+    padding: 40px 100px 30px;
 }
 
 main #articles time
@@ -207,7 +240,7 @@ main figcaption
 
 ion-icon[name="search-outline"]
 {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 footer
@@ -222,8 +255,7 @@ footer
     justify-content: space-between;
     align-items: center;
 
-    border: 1px solid black;
-    padding: 0.05vh;
+    padding: 6.25px 15px;
 }
 
 footer .left-content
