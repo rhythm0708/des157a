@@ -186,6 +186,9 @@ main .folder
 {
     display: flex;
     align-items: center;
+
+    padding: 2.5px 10px;
+    border-radius: 10%;
 }
 
 main #articles
@@ -193,6 +196,20 @@ main #articles
     border: 1px solid black;
 
     padding: 40px 100px 30px;
+}
+
+main #articles article
+{
+    border-bottom: 1px solid gray;
+
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+main #articles article:last-of-type
+{
+    /*border-bottom: none;
+    margin-bottom: 0px;*/
 }
 
 main #articles time
@@ -281,12 +298,29 @@ main #viewport
     border: 1px solid black;
 }
 
+#folders .folder:hover
+{
+    cursor: pointer;
+    background-color: lightgray;
+    transform: scale(1.2) 1s;
+}
+
 #sticky
 {
     background-color: white; 
 
     position: sticky;
     top: 0;
+}
+
+.invisible
+{
+    display: none;
+}
+
+.visible
+{
+    display: block;
 }
 
 /* Responsive Design */

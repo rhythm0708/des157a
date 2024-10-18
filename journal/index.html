@@ -18,6 +18,9 @@
     
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/0a510a4691.js" crossorigin="anonymous"></script>
+
+        <!-- Stylesheet-->
+         <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -40,29 +43,50 @@
                     </div>
                 </div>
                 <div id="folders">
-                    <div class="folder">
+                    <div class="folder" role="button">
                         <ion-icon name="folder-outline"></ion-icon><p>All Entries</p>
                     </div>
-                    <div class="folder">
+                    <div class="folder" role="button">
                         <ion-icon name="folder-outline"></ion-icon><p>Entry 1</p>
                     </div>
-                    <div class="folder">
+                    <div class="folder" role="button">
                         <ion-icon name="folder-outline"></ion-icon><p>Entry 2</p>
                     </div>
-                    <div class="folder">
+                    <div class="folder" role="button">
                         <ion-icon name="folder-outline"></ion-icon><p>Entry 3</p>
                     </div>
-                    <div class="folder">
+                    <div class="folder" role="button">
                         <ion-icon name="folder-outline"></ion-icon><p>Entry 4</p>
                     </div>
-                    <div class="folder">
+                    <div class="folder" role="button">
                         <ion-icon name="folder-outline"></ion-icon><p>Entry 5</p>
                     </div>
                 </div>
             </div>
 
             <div id="articles">
-                <div id="article=1">
+                <article id="article-5">
+        
+                </article>
+        
+                <article id="article-4">
+        
+                </article>
+        
+                <article id="article-3">
+        
+                </article>
+                <article id="article-2">
+                    <h2>Overlay Design Pattern</h2>
+                    <time datetime="2024-10-17">17th October 2024</time>
+
+                    <p>This week, I read the article <a href="https://www.nngroup.com/articles/overuse-of-overlays/">Overuse of Overlays: How to Avoid Misusing Lightboxes</a> by Kathryn Whitenton. I thought that this was a well-written article. She did a great job articulating use cases for overlays and when you should consider alternatives. She even described ways to make overlays more palatable for users. Her examples helped me understand that there are many scenarios when overlays should not be used, and many things to consider when they are.</p>
+
+                    <p>The author mentioned things I hadn’t even considered about the design of overlays. For example, she mentioned how users might hit the browser’s “back” button to escape an overlay, but doing so brings them to the previous page in their browsing history (overlays are not considered separate pages). This would introduce pain and frustration into the user experience. The solution she proposed was to reprogram the browser’s “back” button to close the overlay when it is open. I thought that this was a nifty tip, and something I could do with my current JavaScript experience (“event.preventDefault()”?). Tips like this helped me realize that there is so much work that goes into a good overlay—not just in terms of code, but in user testing and quality assurance as well.</p>
+
+                    <p>Read the full article <a href="https://www.nngroup.com/articles/overuse-of-overlays/">here</a>!</p>
+                </article>
+                <article id="article-1">
                     <h2>Researching Form Design</h2>
                     <time datetime="2024-10-13">13th October 2024</time>
 
@@ -77,22 +101,6 @@
                         </div>
                         <figcaption>Stardew Valley's character customization form, upon load (left) and after completion (right) (<a href="https://www.youtube.com/watch?v=HHYVzCxmAZM">Source</a>).</figcaption>
                     </figure>
-                </div>
-        
-                <article id="article-2">
-        
-                </article>
-        
-                <article id="article-3">
-        
-                </article>
-        
-                <article id="article-4">
-        
-                </article>
-        
-                <article id="article-5">
-        
                 </article>
             </div>
         </div>
