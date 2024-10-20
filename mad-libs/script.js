@@ -51,6 +51,7 @@ import madLibStories from "./madLibStories.js";
         const submitButton = document.createElement("button");
         submitButton.type = "submit";
         submitButton.textContent = "Start It Up!";
+        formContainer.appendChild(submitButton);
     }
 
     // FUNCTION: Create label/input pairs.
