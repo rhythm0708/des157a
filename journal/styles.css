@@ -76,7 +76,6 @@ footer h3
 
 header
 {
-    /*background-color: #97ECF1;*/
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(151,236,241,1)70%);
 }
@@ -109,7 +108,6 @@ main #articles
 
 footer
 {
-    /*background: #97ECF1;*/
     background: rgb(151,236,241);
     background: linear-gradient(0deg, rgba(151,236,241,1) 0%, rgba(223,253,255,1) 100%);
 }
@@ -204,12 +202,6 @@ main #articles article
 
     padding-bottom: 20px;
     margin-bottom: 40px;
-}
-
-main #articles article:last-of-type
-{
-    /*border-bottom: none;
-    margin-bottom: 0px;*/
 }
 
 main #articles time
