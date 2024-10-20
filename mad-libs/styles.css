@@ -46,7 +46,7 @@ h2
     font-style: normal;
 }
 
-p
+p, form input
 {
     font-family: "Exo 2", sans-serif;
     font-weight: 400;

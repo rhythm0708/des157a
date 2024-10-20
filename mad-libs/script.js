@@ -1,5 +1,4 @@
 import madLibStories from "./madLibStories.js";
-console.log("check1");
 
 (function(){
     "use strict";
@@ -37,7 +36,6 @@ console.log("check1");
             {
                 randomIndex = Math.floor(Math.random() * madLibStories.length);
             }
-            console.log(randomIndex);
 
             // Identify story prompts (stored as property-tuple).
             const promptParams = madLibStories[randomIndex].prompts;
@@ -48,34 +46,30 @@ console.log("check1");
             // Add index to generatedStories list.
             generatedStories.push(randomIndex);
         }
+
+        // Add submit button at the end.
+        const submitButton = document.createElement("button");
+        submitButton.type = "submit";
+        submitButton.textContent = "Start It Up!";
     }
 
     // FUNCTION: Create label/input pairs.
-    function createLabelInput(index, storyPrompts, form)
+    function createLabelInput(storyIndex, storyPrompts, form)
     {
-        const label1 = document.createElement("label");
-        label1.innerHTML = storyPrompts[0];
-        const input1 = document.createElement("input");
-        input1.type = "text";
-        input1.name = `story${index}-prompt1`;
-        input1.id = input1.name;
-        input1.required = true;
+        for(const [index, prompt] of storyPrompts.entries())
+        {
+            const label = document.createElement("label");
+            label.innerHTML = storyPrompts[index];
+            const input = document.createElement("input");
+            input.type = "text";
+            input.name = `story${storyIndex}-prompt${index}`;
+            input.id = input1.name;
+            input.required = true;
 
-        const label2 = document.createElement("label");
-        label2.innerHTML = storyPrompts[1];
-        const input2 = document.createElement("input");
-        input2.type = "text";
-        input2.name = `story${index}-prompt2`;
-        input2.id = input2.name;
-        input2.required = true;
-
-        form.appendChild(label1);
-        form.appendChild(input1);
-        form.appendChild(document.createElement("br"));
-
-        form.appendChild(label2);
-        form.appendChild(input2);
-        form.appendChild(document.createElement("br"));
+            form.appendChild(label);
+            form.appendChild(input);
+            form.appendChild(document.createElement("br"));
+        }
     }
 
     // FUNCTION: Generate story.
