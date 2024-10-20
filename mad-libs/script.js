@@ -36,6 +36,7 @@ import madLibStories from "./madLibStories.js";
             {
                 randomIndex = Math.floor(Math.random() * madLibStories.length);
             }
+            console.log(`Idea #${randomIndex}.`);
 
             // Identify story prompts (stored as property-tuple).
             const promptParams = madLibStories[randomIndex].prompts;
@@ -64,7 +65,7 @@ import madLibStories from "./madLibStories.js";
             const input = document.createElement("input");
             input.type = "text";
             input.name = `story${storyIndex}-prompt${index}`;
-            input.id = input1.name;
+            input.id = input.name;
             input.required = true;
 
             form.appendChild(label);
