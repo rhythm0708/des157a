@@ -66,7 +66,7 @@ form label, form input
     line-height: 1.2em;
 }
 
-form button
+form button, #results-screen button
 {
     font-family: "Exo 2", sans-serif;
     font-weight: 700;
@@ -128,6 +128,16 @@ form button
     background: rgb(248,122,3);
     background: radial-gradient(circle, rgba(248,122,3,1) 0%, rgba(239,222,134,1) 100%);
 
+    border-radius: 15px;
+    border: none;
+    transition: background-color 2s linear;
+}
+
+#results-screen button
+{
+    background: rgb(239,222,134);
+    background: radial-gradient(circle, rgba(239,222,134,1) 0%, rgba(248,122,3,1) 100%);
+    
     border-radius: 15px;
     border: none;
     transition: background-color 2s linear;
@@ -240,7 +250,7 @@ form input
     margin-right: 0;
 }
 
-form button
+form button, #results-screen button
 {
     display: block;
 
@@ -266,6 +276,13 @@ form button:hover
 {
     background: rgb(239,222,134);
     background: radial-gradient(circle, rgba(239,222,134,1) 0%, rgba(248,122,3,1) 100%);
+    transition: background-color 2s linear;
+}
+
+#results-screen button:hover
+{
+    background: rgb(248,122,3);
+    background: radial-gradient(circle, rgba(248,122,3,1) 0%, rgba(239,222,134,1) 100%);
     transition: background-color 2s linear;
 }
 

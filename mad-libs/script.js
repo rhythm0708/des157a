@@ -67,9 +67,9 @@ import madLibStories from "./madLibStories.js";
     function validateForm(inputs)
     {
         let valid = true;
-        
+
         // Check that inputs are not blank
-        for(const input of inputs) 
+        for(let input of inputs) 
         {
             if (input.value.trim() === "")
             {
