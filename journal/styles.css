@@ -223,10 +223,15 @@ main #articles p
 
 main #articles p:last-of-type
 {
-    padding-bottom: 20px;
+    padding-bottom: 35px;
 }
 
-main .images
+main .image-section img
+{
+    width: 90%;
+}
+
+main .image-2
 {
     display: flex;
     justify-content: center;
@@ -234,7 +239,7 @@ main .images
     gap: 30px;
 }
 
-main .images img
+main .image-section .image-2 img
 {
     width: 45%;
 }
@@ -280,6 +285,11 @@ footer .right-content
 }
 
 /* Interactivity */
+
+body
+{
+    overflow-y: hidden;
+}
 
 main #viewport
 {

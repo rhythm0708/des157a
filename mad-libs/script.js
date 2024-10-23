@@ -71,7 +71,7 @@ import madLibStories from "./madLibStories.js";
         // Check that inputs are not blank
         for(let input of inputs) 
         {
-            if (input.value.trim() === "")
+            if (!input.value.trim() === "")
             {
                 alert("Fill in all the blanks.");
                 valid = false;
