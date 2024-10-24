@@ -26,8 +26,10 @@ import madLibStories from "./madLibStories.js";
     {
         event.preventDefault();
 
-        // Validate input.
+        // Collect form responses.
         const userInputs = formContainer.querySelectorAll("input");
+
+        // Validate input.
         if(!validateForm(userInputs))
         {
             return;
@@ -43,16 +45,19 @@ import madLibStories from "./madLibStories.js";
         // Collect form data in object.
         const formData = {};
         userInputs.forEach(input => {
-            formData[input.id] = input.value;
+            formData[input.id] = input.value.trim();
         })
 
         // Generate story.
         generateStory(storyTemplates, formData, resultsContainer);
 
-        // Return button.
+        // Clear form.
+        clearForm(formContainer);
+
+        // Add return button.
         const returnButton = document.createElement("button");
         returnButton.type = "reset";
-        returnButton.textContent = "Try again";
+        returnButton.textContent = "Try It Again!";
         resultsContainer.appendChild(returnButton);
 
         // Return button functionality.
@@ -71,7 +76,7 @@ import madLibStories from "./madLibStories.js";
         // Check that inputs are not blank
         for(let input of inputs) 
         {
-            if (!input.value.trim() === "")
+            if (input.value.trim() === "")
             {
                 alert("Fill in all the blanks.");
                 valid = false;
@@ -125,6 +130,13 @@ import madLibStories from "./madLibStories.js";
         return generatedStories;
     }
 
+    // FUNCTION: Clear form
+    function clearForm(form)
+    {
+        const inputs = form.querySelectorAll("input[type=text]");
+
+        inputs.forEach(input => input.value = "");
+    }
     // FUNCTION: Counts total number of prompts involved.
     function countPrompts(stories)
     {
@@ -165,9 +177,14 @@ import madLibStories from "./madLibStories.js";
         // Submit form responses.
         resultsContainer.innerHTML = "";
 
-        console.log(stories);
+        // Create introductory text.
+        const resultsText = document.createElement("h2");
+        resultsText.textContent = "Here are your ideas:"
+        resultsText.className = "bold";
+        textBox.appendChild(resultsText);
+
         // Print each story.
-        for(let story of stories)
+        for(let [index, story] of stories.entries())
         {
             // Store in "story-block" div.
             const storyBlock = document.createElement("div");
@@ -175,24 +192,26 @@ import madLibStories from "./madLibStories.js";
 
             // Create headings and idea text.
             const storyHeading = document.createElement("h3");
-            let headingText = madLibStories[story].heading;
+            let headingText = `${index+1}. ` + madLibStories[story].heading;
             const storyIdea = document.createElement("p");
             let ideaText = madLibStories[story].story;
 
-            // TODO: Use RegEx to replace all instances of words.
+            // Use RegEx to replace all instances of words.
             for(let [index, prompt] of madLibStories[story].prompts.entries())
             {
                 const placeholder = `[${prompt.toLowerCase()}]`
                 const userWord = inputs[`story${story}-prompt${index}`];
+                const replacement = `<span class="underline">${userWord}</span>`;
 
-                headingText = headingText.replace(placeholder, userWord);
-                ideaText = ideaText.replace(placeholder, userWord);
+                headingText = headingText.replace(placeholder, replacement);
+                ideaText = ideaText.replace(placeholder, replacement);
             }
 
             storyHeading.innerHTML = headingText;
             storyIdea.innerHTML = ideaText;
 
             // Append to text box.
+            // STRETCH: Typing effect for text
             storyBlock.appendChild(storyHeading);
             storyBlock.appendChild(storyIdea);
             textBox.append(storyBlock);
@@ -206,4 +225,7 @@ import madLibStories from "./madLibStories.js";
         darkBackground.className = "hidden";
         resultsContainer.className = "hidden";
     }
+
+    // TODO: Button to automatically fill in random text
+    // On the word "Idea" ?
 })();

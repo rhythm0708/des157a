@@ -44,6 +44,17 @@ h2, h3
     font-family: "Kode Mono", monospace;
     font-weight: 400;
     font-style: normal;
+
+    font-size: 24px;
+}
+
+h3
+{
+    font-family: "Kode Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: 22px;
 }
 
 p
@@ -79,6 +90,17 @@ form button, #results-screen button
 footer p
 {
     font-style: italic;
+}
+
+.bold
+{
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.underline
+{
+    text-decoration: underline;
 }
 
 /* Colors */
@@ -181,6 +203,8 @@ body #left-content, body #right-content
     flex: 1;
     padding: 3vw;
     margin: 5vw;
+
+    overflow-y: scroll;
 }
 
 body #darken-background
@@ -204,7 +228,12 @@ body #results-screen
     left: 50%;
     transform: translate(-50%, -50%);
 
-    padding: 10vh 10vw;
+    padding: 10vh 10vw 5vh;
+}
+
+body #results-screen h2
+{
+    margin-bottom: 40px;
 }
 
 h1
@@ -226,9 +255,14 @@ p
     margin-bottom: 20px;
 }
 
+#left-content p:last-of-type
+{
+    margin-bottom: 0px;
+}
+
 #right-content h2
 {
-    margin-bottom: 1.5vh;
+    margin-bottom: 30px;
 }
 
 .form-group
@@ -247,6 +281,7 @@ form label
 form input
 {
     flex: 2;
+    margin-left: 50px;
     margin-right: 0;
 }
 
@@ -255,9 +290,15 @@ form button, #results-screen button
     display: block;
 
     padding: 5px 15px;
-    margin: 22.5px auto;
+    margin: 35px auto 0px;
 
     text-align: center;
+}
+
+#results-screen button
+{
+    margin-top: 40px;
+    margin-bottom: 5px;
 }
 
 footer
@@ -277,6 +318,11 @@ form button:hover
     background: rgb(239,222,134);
     background: radial-gradient(circle, rgba(239,222,134,1) 0%, rgba(248,122,3,1) 100%);
     transition: background-color 2s linear;
+}
+
+#results-screen
+{
+    overflow-y: scroll;
 }
 
 #results-screen button:hover

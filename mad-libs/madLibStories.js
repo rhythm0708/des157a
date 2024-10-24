@@ -16,7 +16,7 @@ const madLibStories = [
     },
     {
         prompts: ["Noun-s", "Adjective"],
-        heading: "Endless bag of [noun]",
+        heading: "Endless bag of [noun-s]",
         story: "A bag that can hold an endless number of [noun-s], whether big or [adjective]."
     },
     {
