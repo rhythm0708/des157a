@@ -221,7 +221,7 @@ main #articles p
     line-height: 2em;
 }
 
-main #articles p:last-of-type
+main #articles p:last-of-type, main .above-figure
 {
     padding-bottom: 35px;
 }
