@@ -300,6 +300,12 @@ main #viewport
     border: 1px solid black;
 }
 
+main #articles
+{
+    /*TODO: Make only articles section scroll*/
+    /*overflow-y: scroll;*/
+}
+
 #folders .folder:hover
 {
     cursor: pointer;
