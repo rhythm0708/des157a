@@ -244,6 +244,11 @@ main .image-section .image-2 img
     width: 45%;
 }
 
+main img
+{
+    margin: auto;
+}
+
 main figcaption
 {
     line-height: 2em;
