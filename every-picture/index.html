@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case of the Desecrated Project</title>
+
+    <!-- Normalize.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <!-- Stylesheet-->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <!-- Script-->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a href="../index.html">
+        <i data-feather="corner-down-left"></i>
+    </a>
+    
+
+    <h1>Case 1: Who destroyed Hannah's project?</h1>
+    <main>
+        <section id="image">
+            <img src="images/scene-1.jpg" alt="scene-photo" width="750">
+        </section>
+        <section id="text">
+            <h2>Answer the following questions. Both must be correct to validate.</h2>
+
+            <form id="case-questions">
+                <label for="question1">Who left the door open?</label>
+                <select id="question1" name="question1" required>
+                    <option value="none">---</option>
+                    <option value="sandberg">Professor Sandberg</option>
+                    <option value="hannah">Hannah</option>
+                    <option value="jorge">Jorge</option>
+                    <option value="luis">Luis</option>
+                    <option value="russell">Mr Russell</option>
+                </select>
+
+                <br>
+
+                <label for="question2">Who destroyed Hannah's project?</label>
+                <select id="question2" name="question2" required>
+                    <option value="none">---</option>
+                    <option value="sandberg">Professor Sandberg</option>
+                    <option value="hannah">Hannah</option>
+                    <option value="jorge">Jorge</option>
+                    <option value="luis">Luis</option>
+                    <option value="russell">Mr Russell</option>
+                </select>
+
+                <br>
+
+                <button type="submit">Check</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
