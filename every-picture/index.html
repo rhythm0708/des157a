@@ -23,12 +23,14 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <a href="../index.html">
+    <a href="../index.html" class="return">
         <i data-feather="corner-down-left"></i>
     </a>
-    
 
-    <h1>Case 1: Who destroyed Hannah's project?</h1>
+    <div class="heading-container">
+        <h1 class="underline"><span class="bold">Case 1</span>: Who destroyed Hannah's project?</h1>
+    </div>
+    
     <main>
         <section id="image">
             <img src="images/scene-1.jpg" alt="scene-photo" width="750">
@@ -46,9 +48,6 @@
                     <option value="luis">Luis</option>
                     <option value="russell">Mr Russell</option>
                 </select>
-
-                <br>
-
                 <label for="question2">Who destroyed Hannah's project?</label>
                 <select id="question2" name="question2" required>
                     <option value="none">---</option>
@@ -60,8 +59,9 @@
                 </select>
 
                 <br>
-
-                <button type="submit">Check</button>
+                <div class="button-container">
+                    <button type="submit">Check</button>
+                </div>
             </form>
         </section>
     </main>

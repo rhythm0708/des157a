@@ -30,13 +30,54 @@ nav ul li a
 
 /* Typography */
 
-h1, h2, h3, p 
-{
+h1, h2, h3, p {
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
   }
+
+h1 {
+    font-size: 36px;
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 100%;
+    height: 3px;
+    background-color: currentColor;
+}
+
+h2 {
+    font-size: 28px;
+    line-height: 1.5em;
+}
+
+form label, form select, form button {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: 28px;
+    line-height: 1.5em;
+}
+
+form button {
+    text-align: center;
+}
+
+.bold {
+    font-weight: 550;
+}  
+
+.underline {
+    /*border-bottom: 1px solid #FEFAE0;
+    border-width: 100%;*/
+}
 
 /* Colors */
 
@@ -44,8 +85,22 @@ body {
     background-color: #283618;
 }
 
-h1, h2, p, form label, form option {
+h1, h2, p, form label, form select, form button {
     color: #FEFAE0; 
+}
+
+form select {
+    background-color: #DDA15E;
+    color: #283618;
+}
+
+form button {
+    background-color: #FEFAE0;
+    color: #283618;
+}
+
+main img {
+    border: 10px #FEFAE0 solid;
 }
 
 svg.feather {
@@ -58,33 +113,95 @@ svg.feather {
 
 /* Layout */
 
-body
-{
+body {
     margin: 50px;
 }
 
-main
-{
+main {
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    gap: 75px;
+}
+
+svg.feather {
+    margin-bottom: 20px;
+}
+
+.return {
+    padding: 10px;
+}
+
+h1 {
+    display: inline-block;
+    position: relative;
+
+    margin-bottom: 30px;
+}
+
+main #image, main #text {
+    flex: 1;
+}
+
+main #text {
+    padding-right: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+form label, form select {
+    display: block;
+}
+
+form select {
+    margin: 20px 0px;
+}
+
+form .button-container {
+    display: flex;
+    justify-content: center;
+}
+
+form button {
+    width: 10vw;
+    margin-top: 10px;
 }
 
 /* Interactivity */
 
-body
-{
+body {
     cursor: url(images/cursor-pixel.png), auto;
 }
 
-svg.feather
-{
+svg.feather {
     border-radius: 50%;
     border-color: transparent;
 }
 
-svg.feather:hover
-{
-    border-color: #FEFAE0;
+svg.feather:hover {
+    border: 1px #FEFAE0 solid;
+    cursor: url(images/hand-pixel.png), auto;
+}
+
+form select:hover {
+    background-color: #606C38;
+    cursor: url(images/hand-pixel.png), auto;
+}
+
+form select:focus {
+    background-color: #FEFAE0;
+}
+
+form label:hover ~ select {
+    background-color: #DDA15E; 
+}
+
+form button:hover {
+    background-color: #606C38;
     cursor: url(images/hand-pixel.png), auto;
 }
