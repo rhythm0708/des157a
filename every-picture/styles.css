@@ -32,7 +32,6 @@ nav ul li a
 
 h1, h2, h3, p {
     font-family: "Pixelify Sans", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
   }
@@ -58,12 +57,15 @@ h2 {
 
 form label, form select, form button {
     font-family: "Pixelify Sans", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
 
     font-size: 28px;
     line-height: 1.5em;
+}
+
+#overlay-text p {
+    line-height: 1.2em;
 }
 
 form button {
@@ -73,11 +75,6 @@ form button {
 .bold {
     font-weight: 550;
 }  
-
-.underline {
-    /*border-bottom: 1px solid #FEFAE0;
-    border-width: 100%;*/
-}
 
 /* Colors */
 
@@ -95,11 +92,11 @@ form select {
 }
 
 form button {
-    background-color: #FEFAE0;
+    background-color: #606C38;
     color: #283618;
 }
 
-main img {
+main #main-scene {
     border: 10px #FEFAE0 solid;
 }
 
@@ -107,20 +104,20 @@ svg.feather {
     stroke: #FEFAE0; 
 }
 
-/* Navigation */
-
-
+#overlay {
+    border: 2px solid #DDA15E;
+    background-color: #606C38;
+}
 
 /* Layout */
 
 body {
-    margin: 50px;
+    margin: 30px 50px 50px;
 }
 
 main {
     display: flex;
-    flex-direction: row;
-    gap: 75px;
+    gap: 50px;
 }
 
 svg.feather {
@@ -138,8 +135,8 @@ h1 {
     margin-bottom: 30px;
 }
 
-main #image, main #text {
-    flex: 1;
+main #image {
+    width: 750px;
 }
 
 main #text {
@@ -148,6 +145,7 @@ main #text {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 40%;
 }
 
 h2 {
@@ -169,13 +167,233 @@ form .button-container {
 
 form button {
     width: 10vw;
-    margin-top: 10px;
+    margin-top: 20px;
+}
+
+#overlay {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+
+    top: 283.5px;
+    left: 375px;
+    transform: translate(-187.5px, -146.75px);
+}
+
+#overlay-images {
+    height: 240px;
+    width: 100%;
+    margin: 30px 30px 0px;
+    position: relative;
+
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    overflow-x: scroll;
+}
+
+#overlay-images img {    
+    height: 150px;
+    width: auto;
+
+    position: relative;
+}
+
+#overlay-images img:first-child {
+    padding-left: 10px; 
+}
+
+#overlay-images img:last-child {
+    padding-right: 10px; 
+}
+
+#overlay-text {
+    height: 150px;
+    width: 100%;
+
+    margin: 0px 30px;
+    position: relative;
+}
+
+#overlay-text p {
+    margin: 10px 20px;
+}
+
+/* IMAGE Interactivity */
+
+#image {
+    position: relative;
+}
+
+#main-scene {
+    width: 750px !important;
+    max-width: 750px !important;
+}
+
+img {
+    width: 100%;
+    position: absolute;
+}
+
+#lost-sign, #lost-sign-shadow {
+    width: 51px;
+    top: 229px;
+    left: 94px;
+}
+
+#phone, #phone-shadow {
+    width: 30.69px;
+    top: 350px;
+    left: 87px;
+}
+
+#bunny-ears, #bunny-ears-shadow {
+    width: 83.7px;
+    top: 147px;
+    left: 149px;
+}
+
+#trash-bag, #trash-bag-shadow {
+    width: 76.73px;
+    top: 232px;
+    left: 141.8px;
+}
+
+#janitor-notice, #janitor-notice-shadow {
+    width: 30.69px;
+    top: 238px;
+    left: 234px;
+}
+
+#jorge-book, #jorge-book-shadow {
+    width: 30.69px;
+    top: 342.5px;
+    left: 316.5px;
+}
+
+#sandberg-report, #sandberg-report-shadow {
+    width: 44.6px;
+    top: 407.3px;
+    left: 437.4px;
+}
+
+#halloween-invite, #halloween-invite-shadow {
+    width: 83.71px;
+    top: 491px;
+    left: 509.2px;
+}
+
+#hammer, #hammer-shadow {
+    width: 31.53px;
+    top: 399px;
+    left: 633px;
+}
+
+#pumpkin-basket, #pumpkin-basket-shadow {
+    width: 27.9px;
+    top: 349px;
+    left: 591px;
+}
+
+#door, #door-shadow {
+    width: 55.7px;
+    top: 118px;
+    left: 684px;
+}
+
+#doorstop, #doorstop-shadow {
+    width: 27.9px;
+    top: 463px;
+    left: 706px;
+}
+
+#des-class, #des-class-shadow {
+    width: 25.2px;
+    top: 224.5px;
+    left: 518px;
+}
+
+#do-not-touch, #do-not-touch-shadow {
+    width: 24.5px;
+    top: 224px;
+    left: 446.2px;
+}
+
+#hannah-postit, #hannah-postit-shadow {
+    width: 12.75px;
+    top: 290px;
+    left: 456px;
+}
+
+#jorge-postit, #jorge-postit-shadow {
+    width: 12.7px;
+    top: 290px;
+    left: 498.7px;
+}
+
+#luis-postit, #luis-postit-shadow {
+    width: 12.7px;
+    top: 291.1px;
+    left: 539.3px;
+}
+
+#hannah-project, #hannah-project-shadow {
+    width: 22.32px;
+    top: 282.89px;
+    left: 447px;
+}
+
+#jorge-project, #jorge-project-shadow {
+    width: 24.8px;
+    top: 277.22px;
+    left: 485.2px;
+}
+
+#luis-project, #luis-project-shadow {
+    width: 28.5px;
+    top: 278px;
+    left: 521.5px;
+}
+
+.sil-container, .interactable-container {
+    position: relative;
+    width: 750px !important;
+    height: 567.01px;
+}
+
+.interactable, .sil {
+    pointer-events: none;
+    position: absolute;
+}
+
+.hovered {
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+    cursor: url(images/focus-cursor.png), auto;
+}
+
+#tooltip {
+    display: none;
+    position: fixed;
+    text-align: center;
+    z-index: 1;
+}
+
+#overlay {
+    display: none;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
 }
 
 /* Interactivity */
 
 body {
     cursor: url(images/cursor-pixel.png), auto;
+    overflow: hidden;
 }
 
 svg.feather {
@@ -202,6 +420,6 @@ form label:hover ~ select {
 }
 
 form button:hover {
-    background-color: #606C38;
+    background-color: #FEFAE0;
     cursor: url(images/hand-pixel.png), auto;
 }
