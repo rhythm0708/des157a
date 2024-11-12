@@ -2,20 +2,36 @@
     "use strict";
     console.log("reading js");
 
+    // Scene.
     const mainImg = document.querySelector("#main-scene");
+
+    // Question form.
     const form = document.querySelector("#case-questions");
+
+    // Story and solution overlays.
+    const darkenBackground = document.querySelector("#darken");
+    const storyLink = document.querySelector("#story-link");
+    const storyOverlay = document.querySelector("#story-overlay");
+    const caseSolvedLink = document.querySelector("#case-solved-link");
+    const caseSolvedOverlay = document.querySelector("#case-solved-overlay");
+
+    // Next case.
+    const nextCaseButton = document.querySelector("#next-case");
 
     form.addEventListener("submit", function(event){
         event.preventDefault();
         const answer1 = document.querySelector("#question1").value;
         const answer2 = document.querySelector("#question2").value;
 
-        if (answer1 === "none" || answer2 === "none") {
-            alert("Fill in both blanks!");
+        if (answer1 === "" || answer2 === "") {
+            alert("You must answer both questions.");
         } else if (answer1 === "jorge" && answer2 === "hannah") {
-            alert("Correct! You win.");
+            darkenBackground.style.display = "inline";
+            caseSolvedOverlay.style.display = "inline";
+            caseSolvedLink.style.display = "inline";
+            nextCaseButton.style.display = "inline";
         } else {
-            alert("Try again.");
+            alert("At least one of the two answers is wrong.");
 
         }
     });
@@ -86,7 +102,7 @@
             tooltip.style.display = "inline";
             tooltip.style.left = `${event.pageX + tipOffsetX}px`;
             tooltip.style.top = `${event.pageY + tipOffsetY}px`;
-            tooltip.textContent = area.getAttribute("title");
+            tooltip.textContent = area.getAttribute("alt");
         });
 
         area.addEventListener('mouseout', function(){
@@ -100,12 +116,39 @@
         });
     })
 
+    // Review the story.
+    storyLink.addEventListener("click", function(event){
+        event.preventDefault();
+        darkenBackground.style.display = "inline";
+        storyOverlay.style.display = "inline";
+    });
+
+    // Review the solution.
+    caseSolvedLink.addEventListener("click", function(event){
+        event.preventDefault();
+        darkenBackground.style.display = "inline";
+        caseSolvedOverlay.style.display = "inline";
+    });
+
+    // Next case?
+    nextCaseButton.addEventListener("click", function(event){
+        event.preventDefault();
+        alert("To be continued...");
+    });
+
+    // Click out of overlay.
     mainImg.addEventListener("click", function(){
         overlayElement.style.display = "none";
     });
 
-    function styleIcons()
-    {
+    // Click on darkened background to escape overlays.
+    darkenBackground.addEventListener("click", function(){
+        darkenBackground.style.display = "none";
+        storyOverlay.style.display = "none";
+        caseSolvedOverlay.style.display = "none";
+    });
+
+    function styleIcons() {
         feather.replace();
     }
 })();

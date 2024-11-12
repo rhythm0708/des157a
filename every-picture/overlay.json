@@ -31,17 +31,17 @@
     },
     {
         "object": "sandberg-report",
-        "text": "Professor Sandberg seems to have left his comments on the students' work.",
+        "text": "Professor Sandberg seems to have left comments on his students' work.",
         "images": ["sandberg-notes-1.JPG", "sandberg-notes-2.JPG"]
     },
     {
         "object": "halloween-invite",
-        "text": "An invite to a halloween party? It seems like the party took place last night at the lab and was hosted by Hannah and Luis.",
+        "text": "An invite to a halloween party. It seems like the party took place last night at the lab and was hosted by Hannah and Luis.",
         "images": ["halloween-invite-1.JPG", "halloween-invite-2.JPG"]
     },
     {
         "object": "hammer",
-        "text": "A large hammer with what appears to be dirt smudges around its handle.",
+        "text": "A hammer with what appears to be dirt smudges around its handle.",
         "images": ["hammer.JPG"]
     },
     {
