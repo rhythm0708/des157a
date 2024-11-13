@@ -226,6 +226,11 @@ main #articles p:last-of-type, main .above-figure
     padding-bottom: 35px;
 }
 
+main #articles ol 
+{
+    line-height: 2em;
+}
+
 main .image-section img
 {
     width: 90%;
