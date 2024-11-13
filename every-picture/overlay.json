@@ -2,101 +2,101 @@
     {
         "object": "lost-sign",
         "text": "A hastily-drawn sign for a lost phone.",
-        "images": ["lost-sign.jpg"]
+        "images": ["lost-sign.JPG"]
     },
     {
         "object": "phone",
         "text": "A lost phone. It seems to have been left here recently. You look through it and find some text messages.",
-        "images": ["phone.jpg"]
+        "images": ["phone.JPG"]
     },
     {
         "object": "bunny-ears",
         "text": "Bunny ears. They appear to be part of a Halloween costume.",
-        "images": ["bunny-ears.jpg"]
+        "images": ["bunny-ears.JPG"]
     },
     {
         "object": "trash-bag",
         "text": "Looking in the trash bag, you find a wooden slab with blood on it, and a bag containing project remains. The bag is labeled 'Jorge.'",
-        "images": ["trash-bag-0.jpg", "trash-bag-1.jpg", "trash-bag-2.jpg"]
+        "images": ["trash-bag-0.JPG", "trash-bag-1.JPG", "trash-bag-2.JPG"]
     },
     {
         "object": "janitor-notice",
         "text": "A notice posted by Mr. Russell, the janitor. It describes how the lab door has been left open several times this week but no damage was observed to the hatch or lock.",
-        "images": ["janitor-notice.jpg"]
+        "images": ["janitor-notice.JPG"]
     },
     {
         "object": "jorge-book",
         "text": "Jorge's class notebook. It lists his plans for the day before the incident and his durability trials.",
-        "images": ["jorge-notebook-1.jpg", "jorge-notebook-2.jpg"]
+        "images": ["jorge-notebook-1.JPG", "jorge-notebook-2.JPG"]
     },
     {
         "object": "sandberg-report",
         "text": "Professor Sandberg seems to have left comments on his students' work.",
-        "images": ["sandberg-notes-1.jpg", "sandberg-notes-2.jpg"]
+        "images": ["sandberg-notes-1.JPG", "sandberg-notes-2.JPG"]
     },
     {
         "object": "halloween-invite",
         "text": "An invite to a halloween party. It seems like the party took place last night at the lab and was hosted by Hannah and Luis.",
-        "images": ["halloween-invite-1.jpg", "halloween-invite-2.jpg"]
+        "images": ["halloween-invite-1.JPG", "halloween-invite-2.JPG"]
     },
     {
         "object": "hammer",
         "text": "A hammer with what appears to be dirt smudges around its handle.",
-        "images": ["hammer.jpg"]
+        "images": ["hammer.JPG"]
     },
     {
         "object": "pumpkin-basket",
         "text": "A halloween-themed basket full of sweet treats. There are a variety of candies, with some noticeable dirt smudges.",
-        "images": ["pumpkin-basket-1.jpg", "pumpkin-basket-2.jpg"]
+        "images": ["pumpkin-basket-1.JPG", "pumpkin-basket-2.JPG"]
     },
     {
         "object": "door",
         "text": "The entrance to the lab. It seems to be in regular working condition.",
-        "images": ["door.jpg"]
+        "images": ["door.JPG"]
     },
     {
         "object": "doorstop",
         "text": "A simple door wedge.",
-        "images": ["doorstop.jpg"]
+        "images": ["doorstop.JPG"]
     },
     {
         "object": "des-class",
         "text": "A label indicating that these projects are for 'DES 138— Materials Study in Environmental Design' w/ Professor Sandberg.",
-        "images": ["des-class.jpg"]
+        "images": ["des-class.JPG"]
     },
     {
         "object": "do-not-touch",
         "text": "A warning not to disturb the students' projects.",
-        "images": ["do-not-touch.jpg"]
+        "images": ["do-not-touch.JPG"]
     },
     {
         "object": "hannah-postit",
         "text": "A post-it note with 'Hannah' written on it.",
-        "images": ["hannah.jpg"]
+        "images": ["hannah.JPG"]
     },
     {
         "object": "jorge-postit",
         "text": "A post-it note with 'Jorge' written on it.",
-        "images": ["jorge.jpg"]
+        "images": ["jorge.JPG"]
     },
     {
         "object": "luis-postit",
         "text": "A post-it note with 'Luis' written on it.",
-        "images": ["luis.jpg"]
+        "images": ["luis.JPG"]
     },
     {
         "object": "hannah-project",
         "text": "Hannah's class project, which shows signs of being pummeled and deformed.",
-        "images": ["hannah-project.jpg"]
+        "images": ["hannah-project.JPG"]
     },
     {
         "object": "jorge-project",
         "text": "Jorge's class project, which looks healthy and in good condition.",
-        "images": ["jorge-project.jpg"]
+        "images": ["jorge-project.JPG"]
     },
     {
         "object": "luis-project",
         "text": "Luis' class project, which looks to be in acceptable form.",
-        "images": ["luis-project.jpg"]
+        "images": ["luis-project.JPG"]
     }
 ]

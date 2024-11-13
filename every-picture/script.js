@@ -76,7 +76,6 @@
                 for (const imagePath of objectOverlay.images) {
                     const imgElement = document.createElement("img");
                     imgElement.src = "./images/zooms/" + imagePath;
-                    console.log(imgElement.src);
                     imgElement.alt = imagePath;
                     overlayImages.appendChild(imgElement);
                 }
