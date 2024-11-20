@@ -1,0 +1,88 @@
+/* Resets */
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, p, nav ul {
+    margin: 0;
+    padding: 5px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+   
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Other Styles */
+
+body {
+    background-color: lightcyan;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 7.5vh 5vh;
+}
+
+main {
+    background-color: lightgreen;
+    width: 40svw;
+    padding: 5vh 5vh;
+
+    outline: 1px cyan solid;
+    border-radius: 20px;
+}
+
+h1, p, ul li {
+    line-height: 1.5em;
+}
+
+h1 {
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+
+    font-family: "Barlow", sans-serif;
+    font-weight: 550;
+}
+
+h1, p {
+    padding-bottom: 20px;
+}
+
+p, ul li {
+    font-family: "Barlow", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+ul li {
+    font-size: 16px;
+}
+
+.fas {
+    position: absolute;
+    top: 6vh;
+    left: 5vw;
+
+    font-size: 36px;
+}
+
+.fa-long-arrow-alt-left:hover {
+    transform:translateX(-5px);
+}
