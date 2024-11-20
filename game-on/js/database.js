@@ -1,24 +1,27 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// Import the necessary functions from the Firebase SDK (using the correct version)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
-(function(){
-    // Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+(function(){    
+    // Your web app's Firebase configuration
     const firebaseConfig = {
-    apiKey: "AIzaSyB23YHeO8FiX_ecpKRJRXhQyHFuKaS7RVc",
-    authDomain: "im2-game-on--multiplayer.firebaseapp.com",
-    databaseURL: "https://im2-game-on--multiplayer-default-rtdb.firebaseio.com",
-    projectId: "im2-game-on--multiplayer",
-    storageBucket: "im2-game-on--multiplayer.firebasestorage.app",
-    messagingSenderId: "180183271025",
-    appId: "1:180183271025:web:0a1eadfa91496114f73dd0",
-    measurementId: "G-NJJTZPKBQC"
+        apiKey: "AIzaSyB23YHeO8FiX_ecpKRJRXhQyHFuKaS7RVc",
+        authDomain: "im2-game-on--multiplayer.firebaseapp.com",
+        databaseURL: "https://im2-game-on--multiplayer-default-rtdb.firebaseio.com",
+        projectId: "im2-game-on--multiplayer",
+        storageBucket: "im2-game-on--multiplayer.firebasestorage.app",
+        messagingSenderId: "180183271025",
+        appId: "1:180183271025:web:0a1eadfa91496114f73dd0",
+        measurementId: "G-NJJTZPKBQC"
     };
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
+
+    // Initialize the database
+    const db = getDatabase(app);
 
     // WebRTC setup
     const peerConnection = new RTCPeerConnection();
@@ -37,12 +40,15 @@ import { getAnalytics } from "firebase/analytics";
         const offer = await peerConnection.createOffer();
         await peerConnection.setLocalDescription(offer);
 
-        db.ref(`rooms/${roomCode}`).set({
+        // Set the room data in Firebase
+        const roomRef = ref(db, `rooms/${roomCode}`);
+        await set(roomRef, {
             offer: JSON.stringify(peerConnection.localDescription)
         });
 
-        // Listen for answer
-        db.ref(`rooms/${roomCode}/answer`).on("value", async (snapshot) => {
+        // Listen for answer from the other user
+        const answerRef = ref(db, `rooms/${roomCode}/answer`);
+        onValue(answerRef, async (snapshot) => {
             if (snapshot.exists()) {
                 const answer = JSON.parse(snapshot.val());
                 await peerConnection.setRemoteDescription(answer);
@@ -54,7 +60,8 @@ import { getAnalytics } from "firebase/analytics";
     // Join a room
     joinRoomButton.onclick = async () => {
         const roomCode = roomCodeInput.value;
-        const snapshot = await db.ref(`rooms/${roomCode}/offer`).get();
+        const roomRef = ref(db, `rooms/${roomCode}/offer`);
+        const snapshot = await get(roomRef);
 
         if (snapshot.exists()) {
             const offer = JSON.parse(snapshot.val());
@@ -63,7 +70,9 @@ import { getAnalytics } from "firebase/analytics";
             const answer = await peerConnection.createAnswer();
             await peerConnection.setLocalDescription(answer);
 
-            db.ref(`rooms/${roomCode}/answer`).set(JSON.stringify(peerConnection.localDescription));
+            // Set the answer in Firebase
+            const answerRef = ref(db, `rooms/${roomCode}/answer`);
+            await set(answerRef, JSON.stringify(peerConnection.localDescription));
             startGame();
         } else {
             alert("Room not found!");

@@ -14,28 +14,48 @@
     <!-- Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Luckiest+Guy&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 
     <!-- Feather Icons -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
-
-    <!-- Script -->
-    <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="setup">
-        <input id="roomCode" placeholder="Enter Room Code" />
+    <h2>Welcome to:</h2>
+    <h1>Rock Paper Scissors</h1>
+    <h1>Nuzlocke</h1>
+
+    <div id="tagline">
+        <h3>have a disagreement with a friend?</h3>
+        <h3>resolve it here.</h3>
+    </div>
+    
+    <div id="rules-container">
+        <button>Read the rules</button>
+    </div>
+    
+    <div id="actions">
         <button id="createRoom">Create Room</button>
+        <input type="text" id="roomCode" placeholder="Enter Room Code">
         <button id="joinRoom">Join Room</button>
     </div>
-    <div id="game" class="hidden">
-        <h2 id="turnInfo">Waiting for opponent...</h2>
-        <button id="move1" disabled>Move 1</button>
-        <button id="move2" disabled>Move 2</button>
+    
+    <div id="rules-overlay">
+        <h3>Rules</h3>
+        <p>Tired of traditional rock paper scissors?</p>
+
+        <p>Each player starts off with 2 Rocks, 2 Papers, and 2 Scissors in their hand. They play rock, paper, scissors as normal. But here’s the twist: if you lose a round with a move, then that move is gone for good! The last player with moves left wins the game.</p>
+        <p>If this sounds like a bad idea, that’s because it is. It was inspired by <a href="https://www.youtube.com/watch?v=fiMI23z8E8w">this clip</a> on Alpharad’s channel.</p>
+
+        <p>But in general:</p>
+        <ol>
+            <li>Each round, choose one move to play.</li>
+            <li>If a move ever loses, it is gone for the rest of the game.</li>
+            <li>You lose the game when you run out of moves.</li>
+        </ol>
+        <p>Have fun??</p>
     </div>
+
+    <!-- Scripts -->
+    <script src="js/database.js" type="module"></script>
 </body>
 </html>

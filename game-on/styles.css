@@ -30,9 +30,57 @@ a {
 
 /* Typography */
 
+h1 {
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
+}   
+
+h2 {
+    font-family: "Chewy", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h3, button, p {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 /* Colors */
 
+body {
+    background-color: #70CDFF;
+}
+
+#rules-overlay {
+    background-color: lightgray;
+}
+
 /* Layout */
+
+h1, h2 {
+    text-align: center;
+}
+
+#tagline, #rules-container, #actions {
+    display: flex;
+    justify-content: center;
+}
+
+#rules-overlay {
+    width: 70svw;
+    height: 70svh;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: none;
+    z-index: 1;
+}
 
 /* Interactivity */
 
