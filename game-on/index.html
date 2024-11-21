@@ -16,8 +16,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Luckiest+Guy&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 
-    <!-- Feather Icons -->
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0a510a4691.js" crossorigin="anonymous"></script>
+
+    <!-- Scripts -->
+     <script src="js/display.js" defer></script>
 </head>
 <body>
     <h2>Welcome to:</h2>
@@ -30,17 +33,23 @@
     </div>
     
     <div id="rules-container">
-        <button>Read the rules</button>
+        <button id ="rules-button">Read the rules</button>
     </div>
     
     <div id="actions">
-        <button id="createRoom">Create Room</button>
-        <input type="text" id="roomCode" placeholder="Enter Room Code">
-        <button id="joinRoom">Join Room</button>
+        <div id="create-room-container">
+            <button id="create-room">Create Room</button>
+            <p id="room-code">Your room code is: </p>
+        </div>
+        <div id="join-room-container">
+            <button id="join-room">Join Room</button>
+            <input type="text" id="room-code-input" placeholder="Enter Room Code">
+        </div>
     </div>
     
     <div id="rules-overlay">
         <h3>Rules</h3>
+        <i class="fa-solid fa-xmark" id="close-rules"></i>
         <p>Tired of traditional rock paper scissors?</p>
 
         <p>Each player starts off with 2 Rocks, 2 Papers, and 2 Scissors in their hand. They play rock, paper, scissors as normal. But here’s the twist: if you lose a round with a move, then that move is gone for good! The last player with moves left wins the game.</p>
@@ -55,7 +64,7 @@
         <p>Have fun??</p>
     </div>
 
-    <!-- Scripts -->
+    <!-- More Scripts -->
     <script src="js/database.js" type="module"></script>
 </body>
 </html>

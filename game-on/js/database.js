@@ -1,10 +1,10 @@
-// Import the necessary functions from the Firebase SDK (using the correct version)
+// Import functions from the Firebase SDK (using the correct version)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
 import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
 (function(){    
-    // Your web app's Firebase configuration
+    // Firebase configuration.
     const firebaseConfig = {
         apiKey: "AIzaSyB23YHeO8FiX_ecpKRJRXhQyHFuKaS7RVc",
         authDomain: "im2-game-on--multiplayer.firebaseapp.com",
@@ -16,48 +16,50 @@ import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/fir
         measurementId: "G-NJJTZPKBQC"
     };
 
-    // Initialize Firebase
+    // Initialize Firebase.
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
 
-    // Initialize the database
+    // Initialize the database.
     const db = getDatabase(app);
 
-    // WebRTC setup
+    // WebRTC setup.
     const peerConnection = new RTCPeerConnection();
     let dataChannel = peerConnection.createDataChannel("game");
 
-    // Elements
-    const roomCodeInput = document.getElementById("roomCode");
-    const createRoomButton = document.getElementById("createRoom");
-    const joinRoomButton = document.getElementById("joinRoom");
+    // Create/Join room buttons.
+    const roomCodeText = document.querySelector("#room-code");
+    const roomCodeInput = document.querySelector("#room-code-input");
+    const createRoomButton = document.querySelector("#create-room");
+    const joinRoomButton = document.querySelector("#join-room");
 
     // Create a room
     createRoomButton.onclick = async () => {
         const roomCode = Math.random().toString(36).substring(2, 8);
-        roomCodeInput.value = roomCode;
+        roomCodeText.innerHTML = "Your room code is: " + roomCode;
 
         const offer = await peerConnection.createOffer();
         await peerConnection.setLocalDescription(offer);
 
-        // Set the room data in Firebase
+        // Set the room data in Firebase.
         const roomRef = ref(db, `rooms/${roomCode}`);
         await set(roomRef, {
             offer: JSON.stringify(peerConnection.localDescription)
         });
 
-        // Listen for answer from the other user
+        // Listen for answer from the other user.
         const answerRef = ref(db, `rooms/${roomCode}/answer`);
         onValue(answerRef, async (snapshot) => {
             if (snapshot.exists()) {
                 const answer = JSON.parse(snapshot.val());
                 await peerConnection.setRemoteDescription(answer);
+                roomCodeInput.style.borderColor = "green";
                 startGame();
             }
         });
     };
 
-    // Join a room
+    // Join a room.
     joinRoomButton.onclick = async () => {
         const roomCode = roomCodeInput.value;
         const roomRef = ref(db, `rooms/${roomCode}/offer`);
@@ -73,6 +75,7 @@ import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/fir
             // Set the answer in Firebase
             const answerRef = ref(db, `rooms/${roomCode}/answer`);
             await set(answerRef, JSON.stringify(peerConnection.localDescription));
+            roomCodeInput.style.borderColor = "green";
             startGame();
         } else {
             alert("Room not found!");

@@ -34,18 +34,34 @@ h1 {
     font-family: "Luckiest Guy", cursive;
     font-weight: 400;
     font-style: normal;
+
+    font-size: 40px;
 }   
 
 h2 {
     font-family: "Chewy", system-ui;
     font-weight: 400;
     font-style: normal;
+
+    font-size: 26px;
 }
 
-h3, button, p {
+h3, button, p, ol li {
     font-family: "Nunito Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
+
+    line-height: 1.5em;
+}
+
+h3 {
+    font-size: 28px;
+    line-height: 1.5em;
+}
+
+.fa-xmark {
+    font-size: 48px;
+    transition: all 0.2s ease-in-out;
 }
 
 /* Colors */
@@ -58,15 +74,70 @@ body {
     background-color: lightgray;
 }
 
+.fa-xmark {
+    color: lightcoral;
+}
+
 /* Layout */
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 5px 15px;
+}
 
 h1, h2 {
     text-align: center;
 }
 
-#tagline, #rules-container, #actions {
+h1 {
+    padding: 1.5svh 0;
+}
+
+h2:first-of-type {
+    padding-top: 17.5svh;
+    padding-bottom: 2.5svh;
+}
+
+#tagline, #actions, #rules-container {
     display: flex;
     justify-content: center;
+}
+
+#tagline {
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 2svh 1svw;
+}
+
+#actions {
+    display: flex;
+    gap: 50px;
+
+    padding-top: 2svh;
+}
+
+#create-room-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    width: 20svw;
+}
+
+#join-room-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    width: 20svw;
+}
+
+#rules-container {
+    margin: 3svh 3svw;
 }
 
 #rules-overlay {
@@ -80,8 +151,31 @@ h1, h2 {
 
     display: none;
     z-index: 1;
+
+    padding: 7.5svh 6svw;
+}
+
+.fa-xmark {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+
+    padding: 1svh 1svw;
 }
 
 /* Interactivity */
+
+button:hover {
+    background-color: darkgrey;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.fa-xmark:hover {
+    transform: translateX(-2px);
+    transform: translateY(-2px);
+    font-size: 52px;
+
+    transition: all 0.2s ease-in-out;
+}
 
 /* Responsive Design */
