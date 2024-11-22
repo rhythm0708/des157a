@@ -3,6 +3,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
 import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
+// Import game.js.
+import * as game from "./game.js";
+
 (function(){    
     // Firebase configuration.
     const firebaseConfig = {
@@ -33,10 +36,14 @@ import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/fir
     const createRoomButton = document.querySelector("#create-room");
     const joinRoomButton = document.querySelector("#join-room");
 
+    // Player's rooms (created, joined).
+    const playerRooms = ["aaaaaa", "bbbbbb"];
+
     // Create a room
     createRoomButton.onclick = async () => {
         const roomCode = Math.random().toString(36).substring(2, 8);
         roomCodeText.innerHTML = "Your room code is: " + roomCode;
+        playerRooms[0] = roomCode;
 
         const offer = await peerConnection.createOffer();
         await peerConnection.setLocalDescription(offer);
@@ -54,7 +61,7 @@ import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/fir
                 const answer = JSON.parse(snapshot.val());
                 await peerConnection.setRemoteDescription(answer);
                 roomCodeInput.style.borderColor = "green";
-                startGame();
+                game.startGame();
             }
         });
     };
@@ -62,6 +69,8 @@ import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/fir
     // Join a room.
     joinRoomButton.onclick = async () => {
         const roomCode = roomCodeInput.value;
+        playerRooms[1] = roomCode;
+
         const roomRef = ref(db, `rooms/${roomCode}/offer`);
         const snapshot = await get(roomRef);
 
@@ -72,11 +81,11 @@ import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/fir
             const answer = await peerConnection.createAnswer();
             await peerConnection.setLocalDescription(answer);
 
-            // Set the answer in Firebase
+            // Set the answer in Firebase.
             const answerRef = ref(db, `rooms/${roomCode}/answer`);
             await set(answerRef, JSON.stringify(peerConnection.localDescription));
             roomCodeInput.style.borderColor = "green";
-            startGame();
+            game.startGame();
         } else {
             alert("Room not found!");
         }
