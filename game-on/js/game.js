@@ -1,5 +1,5 @@
-import { role, sendMoveToFirebase, listenForBothPlayersMoves } from "./database.js";
-import { updateStatus } from "./display.js";
+import { role, sendMoveToFirebase, listenForBothPlayersMoves, updateScores, getScores } from "./database.js";
+import { updateStatus, displayEndScreen } from "./display.js";
 
 // Home screen elements.
 const actionsContainer = document.querySelector("#actions");
@@ -15,8 +15,10 @@ const gameScreen = document.querySelector("#game-overlay");
 const hand = document.querySelector("#hand");
 let cards = document.querySelectorAll(".card");
 const confirmMove = document.querySelector("#confirm");
+let concedeGame = document.querySelector("#concede");
 
 // Sound.
+let audioSources = document.querySelector("#sources");
 const soundIcon = document.querySelector("#sound-icon");
 const soundtrack = new Audio("sounds/epic-music.mp3"); 
 const explosion = new Audio("sounds/explosion.mp3");
@@ -28,6 +30,7 @@ let musicPlaying = false;
 let selectedMove = 2;
 let playerData;
 let playerRole = "";
+let ended = false;
 
 let cardCount = 6;
 let oppCardCount = 6;
@@ -41,6 +44,7 @@ const matchUps = [[0, -1, 1],
 function startGame(players) {
     actionsContainer.style.display = "none";
     rulesContainer.style.display = "none";
+    audioSources.style.display = "none";
 
     // Setup game.
     setupGame(players);
@@ -60,7 +64,6 @@ function countDown(counter) {
             countDown(counter);
         } else {
             gameScreen.style.display = "inline";
-            // TODO: OTHER START SETTINGS.
         }
     }, 1000);
 }
@@ -84,6 +87,7 @@ async function setupGame(players) {
     soundtrack.loop = true;
     soundtrack.volume = 0;
     explosion.volume = 0.5;
+    clash.volume = 0.7;
     soundtrack.play();
 }
 
@@ -106,6 +110,13 @@ soundIcon.addEventListener("click", function() {
     musicPlaying == true ? soundtrack.volume = 0.8 : soundtrack.volume = 0;
 });
 
+concedeGame.addEventListener("click", function() {
+    stopMusic();
+    let cardCounts = [cardCount, oppCardCount];
+    sendMoveToFirebase(role, "concede");
+    displayEndScreen("loss", cardCounts);
+});
+
 function rotateEllipsis() {
     taglineText.innerHTML += ".";
 
@@ -121,7 +132,7 @@ function fillHand(cards) {
     // Fill hand with appropriate cards.
     for(let card of cards) {
         const cardDiv = document.createElement("div");
-        cardDiv.classList.add("card");
+        cardDiv.classList?.add("card");
 
         const img = document.createElement("img");
         img.src = card.image;
@@ -139,15 +150,15 @@ function fillHand(cards) {
     // Add event listeners.
     cards = document.querySelectorAll(".card");
     cards.forEach(card => card.addEventListener("click", function() {
-        cards.forEach(card => card.classList.remove("selected"));
-        card.classList.add("selected");
+        cards.forEach(card => card.classList?.remove("selected"));
+        card.classList?.add("selected");
     }));
 }
 
 function identifySelectedCard() {
     cards = document.querySelectorAll(".card");
     for(let card of cards) {
-        if(card.classList.contains("selected")) {
+        if(card.classList?.contains("selected")) {
             return card;
         } 
     }
@@ -184,24 +195,48 @@ function handleGame(result) {
 }
 
 // Check if either player has won.
-function checkWin() {
+async function checkWin(cardCounts) {
+    const resolvedCardCounts = await cardCounts;
+    if (role == "host") {
+        cardCount = resolvedCardCounts[0];
+        oppCardCount = resolvedCardCounts[1];
+    } else if (role == "guest") {
+        oppCardCount = resolvedCardCounts[0];
+        cardCount = resolvedCardCounts[1];
+    }
+
     if(cardCount <= 0) {
+        musicPlaying = false;
+        soundtrack.volume = 0;
         return "loss";
     } else if(oppCardCount <= 0) {
+        musicPlaying = false;
+        soundtrack.volume = 0;
         return "win";
-    }
+    } else if(noWinCon())
+    {
+        stopMusic();
+        let cardCounts = [cardCount, oppCardCount];
+        sendMoveToFirebase(role, "concede");
+        displayEndScreen("loss", cardCounts);
+    } 
+    return false;
+}
+
+function noWinCon() {
     return false;
 }
 
 // Update card counts.
-function gameDataUpdate(result) {
+async function gameDataUpdate(result) {
+    let opponent = role == "host" ? "guest" : "host";
     if(result == -1) {
-        cardCount -= 1;
+        await updateScores(role);
         if(musicPlaying) {
             hit.play();
         }
     } else if(result == 1) {
-        oppCardCount -= 1;
+        await updateScores(opponent);
         if(musicPlaying) {
             explosion.play();
         }
@@ -211,12 +246,23 @@ function gameDataUpdate(result) {
         }
     }
 
+    // Get updated scores.
+    const scores = await getScores();
+    if (role == "host") {
+        cardCount = scores.hostScore;
+        oppCardCount = scores.guestScore;
+    } else if (role == "guest") {
+        oppCardCount = scores.hostScore;
+        cardCount = scores.guestScore;
+    }
+    console.log(cardCount, oppCardCount);
     return [cardCount, oppCardCount];
 }
 
-function setupRound() {
-
+function stopMusic() {
+    musicPlaying = false;
+    soundtrack.volume = 0;
 }
 
 // Export.
-export { startGame, checkResult, handleGame, checkWin, gameDataUpdate, setupRound };
+export { startGame, checkResult, handleGame, checkWin, gameDataUpdate, stopMusic };

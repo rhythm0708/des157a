@@ -12,12 +12,10 @@
 
     // Overlays.
     const rulesOverlay = document.querySelector("#rules-overlay");
-    const resultsOverlay = document.querySelector("#results-overlay");
+    let resultsOverlay = document.querySelector("#results-overlay");
 
     // Elements.
     let cards = document.querySelectorAll(".card");
-    let winLossResult = document.querySelector("#result");
-    let finalScore = document.querySelector("#score");
 
     showRules.addEventListener("click", function() {
         rulesOverlay.style.display = "inline";
@@ -47,13 +45,22 @@
     // ACTION: CONFIRM MOVE
     confirmMove.addEventListener("click", function(e) {
         e.preventDefault();
+        let selection = false;
+        cards = document.querySelectorAll(".card");
+        for(let card of cards) {
+            if(card.classList?.contains("selected")) {
+                selection = true;
+            } 
+        }
 
         // Disable all actions.
-        confirmMove.classList.add("inactive");
-        confirmMove.disabled = "true";
+        if(selection) {
+            confirmMove.classList.add("inactive");
+            confirmMove.disabled = "true";
 
-        cards = document.querySelectorAll(".card");
-        cards.forEach(card => card.classList.add("inactive"));
+            cards = document.querySelectorAll(".card");
+            cards.forEach(card => card.classList.add("inactive"));
+        }
     });
 
     // ACTION: Play again.
@@ -84,21 +91,22 @@ function updateStatus(update) {
 }
 
 // FUNCTION: Update after game.
-function gameUIUpdate(result, cardCounts) {
+async function gameUIUpdate(result, cardCounts) {
+    const resolvedCardCounts = await cardCounts;
     // Update values and cards.
     let playerCardCount = document.querySelector("#player-count");
     let oppCardCount = document.querySelector("#opp-count");
 
     if (result === 1) {
         serverStatus.textContent = "You won that interaction!";
-        oppCardCount.textContent = cardCounts[1];
+        oppCardCount.textContent = resolvedCardCounts[1];
     } else if(result === -1) {
         serverStatus.textContent = "You lost that interaction.";
-        playerCardCount.textContent = cardCounts[0];
+        playerCardCount.textContent = resolvedCardCounts[0];
 
         // Remove dead card.
         let selectedCard = document.querySelector(".card.selected");
-        selectedCard.remove();
+        selectedCard?.remove();
     } else if (result === 0) {
         serverStatus.textContent = "It was a draw.";
     }
@@ -107,27 +115,35 @@ function gameUIUpdate(result, cardCounts) {
 function unlockCards() {
     // Re-enable actions.
     let confirmMove = document.querySelector("#confirm");
-    confirmMove.classList.remove("inactive");
+    confirmMove.classList?.remove("inactive");
     confirmMove.disabled = false;
     let cards = document.querySelectorAll(".card");
-    cards.forEach(card => card.classList.remove("inactive"));
+    cards.forEach(card => card.classList?.remove("inactive"));
 
     // Deselect card.
     let selectedCard = document.querySelector(".card.selected");
-    selectedCard.classList.remove("selected");
+    if(selectedCard) {
+        selectedCard.classList?.remove("selected");
+    }   
 }
 
 // FUNCTION: Flash the win screen with the appropriate score.
-function displayEndScreen(result, cardCounts) {
+async function displayEndScreen(result, cardCounts) {
+    let resultsOverlay = document.querySelector("#results-overlay");
     resultsOverlay.style.display = "inline";
+    const resolvedCardCounts = await cardCounts;
 
     // Adjust text based on result.
+    let winLossResult = document.querySelector("#result");
+    let finalScore = document.querySelector("#score");
+
     if(result == "win") {
-        winLossResult.textContent = "You won!";
-        finalScore.textContent = `${cardCounts[0]} – ${cardCounts[1]}`;
+        winLossResult.textContent = "You win!";
+        finalScore.textContent = `${resolvedCardCounts[0]} – ${resolvedCardCounts[1]}`;
     } else if(result == "loss") {
         winLossResult.textContent = "You lose.";
-        finalScore.textContent = `${cardCounts[0]} – ${cardCounts[1]}`;
+        finalScore.textContent = `${resolvedCardCounts[0]} – ${resolvedCardCounts[1]}`;
     }
 }
+
 export { updateStatus, gameUIUpdate, unlockCards, displayEndScreen };

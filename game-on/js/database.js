@@ -33,6 +33,7 @@ import { updateStatus, gameUIUpdate, unlockCards, displayEndScreen } from "./dis
 // Data elements.
 const serverMessage = document.querySelector("#server-message");
 let role = "";
+let madeMove = false;
 
 (function(){    
     // WebRTC setup.
@@ -110,7 +111,7 @@ let role = "";
                     await peerConnection.setLocalDescription(answer);
     
                     // Add this player to the room
-                    const newPlayerRef = ref(db, `rooms/${roomCode}/players/joined`);
+                    const newPlayerRef = ref(db, `rooms/${roomCode}/players/guest`);
                     await set(newPlayerRef, {
                         role: "guest",
                         score: 6,
@@ -172,6 +173,13 @@ let role = "";
 async function sendMoveToFirebase(playerId, card) {
     const playerMoveRef = ref(db, `rooms/${playerRoom}/moves/${playerId}`);
 
+    if(card == "concede") {
+        await set(playerMoveRef, {
+            move: 3
+        });
+        return;
+    }
+
     // Get the move from the card text.
     let move = card.querySelector("p").textContent.toLowerCase();
     let moveNo = -1;
@@ -188,6 +196,7 @@ async function sendMoveToFirebase(playerId, card) {
     });
 
     // Update the UI status to show the player has made a move.
+    madeMove = false;
     updateStatus("playerMove");
 
     // Now listen for both players' moves.
@@ -207,13 +216,20 @@ function listenForBothPlayersMoves(playerId) {
             let opponentMove = movesData[opponentId]?.move;
             let playerMove = movesData[playerId]?.move;
 
-            if (opponentMove !== undefined && playerMove !== undefined) {
+            if(opponentMove === 3) {
+                console.log("opponent conceded");
+                let cardCounts = game.gameDataUpdate(result);
+                displayEndScreen("win", cardCounts);
+                game.stopMusic();
+            } else if (opponentMove !== undefined && playerMove !== undefined) {
                 console.log("Both players have made their moves");
 
                 // Proceed with the game logic
-                turnLogic(playerMove, opponentMove);
+                if(!madeMove) {
+                    turnLogic(playerMove, opponentMove);
+                }
             // If opponent has moved.
-            } else if(opponentMove !== undefined) {
+            } else if (opponentMove !== undefined) {
                 // Update UI: Opponent has made their move
                 updateStatus("oppMove");
             } else {
@@ -225,19 +241,20 @@ function listenForBothPlayersMoves(playerId) {
     });
 }
 
-function turnLogic(playerMove, opponentMove) {
+async function turnLogic(playerMove, opponentMove) {
     // Check the result of the game round
     const result = game.checkResult(playerMove, opponentMove);
 
     // Update game data with result.
     let cardCounts = game.gameDataUpdate(result)
+    madeMove = true;
     // UI Update.
     gameUIUpdate(result, cardCounts);
 
     // Check if there's a win condition
-    let gameOutcome = game.checkWin()
+    let gameOutcome = await game.checkWin(cardCounts);
     if (gameOutcome == false) {
-        // Wait 5 seconds.
+        // Wait 4 seconds.
         setTimeout(() => {
             // Update status.
             updateStatus("newRound");
@@ -245,15 +262,11 @@ function turnLogic(playerMove, opponentMove) {
             unlockCards();
             // Reset moves in FB.
             resetMovesInFirebase();
-            // Setup next round.
-            game.setupRound();
-        }, 5000)
+        }, 4000)
         // Continue the game
         console.log("Game continues...");
-    } else if(gameOutcome == "win" || gameOutcome == "loss")
-     {
+    } else if(gameOutcome == "win" || gameOutcome == "loss") {
         displayEndScreen(gameOutcome, cardCounts);
-        console.log("Game over! A player has won.");
     } else {
         alert("i have failed if it reaches this point");
     }
@@ -273,4 +286,53 @@ async function resetMovesInFirebase() {
     }
 }
 
-export { role, sendMoveToFirebase, listenForBothPlayersMoves };
+async function updateScores(role) {
+    const playerRef = ref(db, `rooms/${playerRoom}/players/${role}/score`);
+
+    try {
+        // Retrieve the current score from Firebase
+        const snapshot = await get(playerRef);
+        
+        if (snapshot.exists()) {
+            const currentScore = snapshot.val(); // Get the current score stored in Firebase
+            
+            // Decrement the score by 1
+            let newScore = currentScore - 1;
+            await set(playerRef, newScore);
+            console.log(`${role}'s score updated to ${newScore}`);
+        } else {
+            console.error(`No score found for ${role}`);
+        }
+    } catch (error) {
+        console.error("Error updating score:", error);
+    }
+}
+
+async function getScores() {
+    // References to both host and guest score locations in Firebase.
+    const hostScoreRef = ref(db, `rooms/${playerRoom}/players/host/score`);
+    const guestScoreRef = ref(db, `rooms/${playerRoom}/players/guest/score`);
+    
+    try {
+        // Retrieve both host and guest scores.
+        const hostSnapshot = await get(hostScoreRef);
+        const guestSnapshot = await get(guestScoreRef);
+
+        // Check if both scores exist.
+        if (hostSnapshot.exists() && guestSnapshot.exists()) {
+            const hostScore = hostSnapshot.val();
+            const guestScore = guestSnapshot.val();
+            
+            // Return the scores as an object
+            return { hostScore, guestScore };
+        } else {
+            console.error("Scores not found for one or both players.");
+            return null;
+        }
+    } catch (error) {
+        console.error("Error retrieving scores:", error);
+        return null;
+    }
+}
+
+export { role, sendMoveToFirebase, listenForBothPlayersMoves, updateScores, getScores };
