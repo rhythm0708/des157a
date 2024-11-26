@@ -20,7 +20,7 @@
     <script src="https://kit.fontawesome.com/0a510a4691.js" crossorigin="anonymous"></script>
 
     <!-- Scripts -->
-     <script src="js/display.js" defer></script>
+     <script src="js/display.js" type="module"></script>
 </head>
 <body>
     <h2>Welcome to:</h2>
@@ -64,21 +64,22 @@
         <p>Have fun??</p>
     </div>
 
+    <a href="sources.html" id="sources">Music and SFX</a>
     <div id="game-overlay">
         <h1 id="game-name"> RPS Nuzlocke Online</h1>
         <section id="game-status">
-            <p id="player-status">You have: 6 cards left</p>
-            <p id="opp-status">Your opponent has: 6 cards left</p>
+            <p id="player-status">You have: <span id="player-count">6</span> cards left</p>
+            <p id="opp-status">Your opponent has: <span id="opp-count">6</span> cards left</p>
         </section>
         <section id="sound">
-            <img src="images/sound.png" alt="sound" id="sound-icon">
+            <img src="images/no-sound.png" alt="sound" id="sound-icon">
         </section>
         <section id="timer">
             <p>Timer</p>
             <p>15</p>
         </section>
         <section id="server-status">
-            <p>Waiting for your opponent...</p>
+            <p id="server-message">Select a move to use against your opponent.</p>
         </section>
         <section id="info">
             <p>Your cards:</p>
@@ -115,6 +116,15 @@
         </section>
     </div>
 
+    <div id="results-overlay">
+        <section id="result">You won!</section>
+        <section id="score">3 – 1</section>
+
+        <div id="results-buttons">
+            <button id="play-again">Play Again</button>
+            <button id="return-to-title">Return to Title Screen</button>
+        </div>
+    </div>
     <!-- More Scripts -->
     <script src="js/database.js" type="module"></script>
 </body>

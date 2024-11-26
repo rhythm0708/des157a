@@ -46,7 +46,7 @@ h2 {
     font-size: 26px;
 }
 
-h3, button, p, ol li, input {
+h3, button, p, ol li, input, #sources {
     font-family: "Nunito Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -54,6 +54,23 @@ h3, button, p, ol li, input {
     line-height: 1.5em;
 }
 
+#result {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+
+    font-size: 48px;
+    text-align: center;
+}
+
+#score {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: 40px;
+    text-align: center;
+}
 h3 {
     font-size: 28px;
 }
@@ -107,7 +124,7 @@ input {
     border-radius: 3px;
 }  
 
-#game-overlay {
+#game-overlay, #results-overlay {
     background-color: #70CDFF;
 }
 
@@ -221,6 +238,12 @@ h2:first-of-type {
     padding: 0;
 }
 
+#sources {
+    position: absolute;
+    bottom: 5svh;
+    right: 5svw;
+
+}
 /* Game Screen */
 
 #game-overlay {
@@ -232,7 +255,7 @@ h2:first-of-type {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    display: inline;
+    display: none; 
     z-index: 2;
 
     padding: 6svh 5svw;
@@ -320,11 +343,59 @@ h2:first-of-type {
     width: auto;
 }
 
+/* Results Overlay */
+
+#results-overlay {
+    width: 100svw;
+    height: 100svh;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: none; 
+    z-index: 2;
+
+    padding: 6svh 5svw;
+}
+
+#result {
+    position: absolute;
+    top: 35svh;
+    left: 50svw;
+    transform: translate(-50%, -50%);
+}
+
+#score {
+    position: absolute;
+    top: 48svh;
+    left: 50svw;
+    transform: translate(-50%, -50%);
+}  
+
+#results-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2svh;
+
+    position: absolute;
+    top: 75svh;
+    left: 50svw;
+    transform: translate(-50%, -50%);
+}
+
 /* Interactivity */
 
 button:hover {
     background-color: darkgrey;
     transition: background-color 0.2s ease-in-out;
+}
+
+.inactive {
+    background-color: darkgray;
+    pointer-events: none;
+    cursor: not-allowed;
 }
 
 .under:hover {
