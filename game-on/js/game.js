@@ -266,3 +266,6 @@ function stopMusic() {
 
 // Export.
 export { startGame, checkResult, handleGame, checkWin, gameDataUpdate, stopMusic };
+
+// Error: 6–0 ends in double loss
+// Error: double decrement of numbers sometimes
