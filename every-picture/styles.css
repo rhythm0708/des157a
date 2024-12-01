@@ -213,6 +213,7 @@ main #text {
     z-index: 2;
 
     overflow-y: scroll;
+    opacity: 1;
 }
 
 #case-solved-overlay {
@@ -277,6 +278,18 @@ form button {
     top: 283.5px;
     left: 375px;
     transform: translate(-187.5px, -146.75px);
+}
+
+#image-overlay {
+    display: none;
+    position: absolute;
+    width: 450px;
+    height: 400px;
+
+    top: 230px;
+    left: 350px;
+    transform: translate(-187.5px, -146.75px);
+    background-color: green;
 }
 
 #overlay-images {

@@ -267,5 +267,8 @@ function stopMusic() {
 // Export.
 export { startGame, checkResult, handleGame, checkWin, gameDataUpdate, stopMusic };
 
-// Error: 6–0 ends in double loss
-// Error: double decrement of numbers sometimes
+// ERROR: 6–0 ends in double loss
+// ERROR: double decrement of numbers sometimes
+// TODO: Finish 'NoWinCon() function and ensure players tie if this triggers for both players.
+// TODO: Add animations for when the moves interact.
+// OPTIONAL: Customize SFX to interactions between individual moves.
