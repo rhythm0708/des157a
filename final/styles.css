@@ -44,7 +44,7 @@ main {
     width: 40svw;
     padding: 5vh 5vh;
 
-    outline: 1px cyan solid;
+    /*outline: 1px cyan solid;*/
     border-radius: 20px;
 }
 
@@ -65,14 +65,15 @@ h1, p {
     padding-bottom: 20px;
 }
 
-p, ul li {
+p, ul li, ol li {
     font-family: "Barlow", sans-serif;
     font-weight: 400;
     font-size: 18px;
 }
 
-ul li {
+ul li, ol li {
     font-size: 16px;
+    line-height: 1.5em;
 }
 
 .fas {
