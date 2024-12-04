@@ -80,6 +80,13 @@ ul li, ol li {
     padding-bottom: 5px;
 }
 
+img {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
 .fas {
     position: absolute;
     top: 6vh;
