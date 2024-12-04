@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case of the Desecrated Project</title>
+
+    <!-- Normalize.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <!-- Stylesheet-->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <!-- Script -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Back -->
+    <a href="../../index.html" class="return">
+        <i data-feather="corner-down-left"></i>
+    </a>
+
+    <!-- Sound -->
+    <section id="sound">
+        <img src="images/no-sound.png" alt="sound" id="sound-icon">
+    </section>
+
+    <div class="heading-container">
+        <h1 class="underline"><span class="bold">Case 1</span>: Who destroyed Hannah's project?</h1>
+    </div>
+    
+    <main>
+        <section id="image">
+            <!-- Main Scene Image -->
+            <img src="images/scene-750.jpg" id="main-scene" alt="main-scene" usemap="#image-map" width="750">
+
+            <!-- Silouhettes -->
+            <div id ="sil-container">
+                <img src="images/shadows/lost-phone-sign.png" class="sil" id="lost-sign-shadow" alt="lost-sign-shadow">
+                <img src="images/shadows/left-phone.png" class="sil" id="phone-shadow" alt="phone-shadow">
+                <img src="images/shadows/bunny-ears.png" class="sil" id="bunny-ears-shadow" alt="bunny-ears-shadow">
+                <img src="images/shadows/trash-bag.png" class="sil" id="trash-bag-shadow" alt="trash-bag-shadow">
+                <img src="images/shadows/janitor-notice.png" class="sil" id="janitor-notice-shadow" alt="janitor-notice-shadow">
+                <img src="images/shadows/jorge-book.png" class="sil" id="jorge-book-shadow" alt="jorge-book-shadow">
+                <img src="images/shadows/sandberg-report.png" class="sil" id="sandberg-report-shadow" alt="sandberg-report-shadow">
+                <img src="images/shadows/halloween-invite.png" class="sil" id="halloween-invite-shadow" alt="halloween-invite-shadow">
+                <img src="images/shadows/hammer.png" class="sil" id="hammer-shadow" alt="hammer-shadow">
+                <img src="images/shadows/pumpkin-bag.png" class="sil" id="pumpkin-basket-shadow" alt="pumpkin-basket-shadow">
+                <img src="images/shadows/door.png" class="sil" id="door-shadow" alt="door-shadow">
+                <img src="images/shadows/doorstop.png" class="sil" id="doorstop-shadow" alt="doorstop-shadow">
+                <img src="images/shadows/des-122.png" class="sil" id="des-class-shadow" alt="des-class-shadow">
+                <img src="images/shadows/do-not-touch.png" class="sil" id="do-not-touch-shadow" alt="do-not-touch-shadow">
+                <img src="images/shadows/hannah-postit.png" class="sil" id="hannah-postit-shadow" alt="hannah-postit-shadow">
+                <img src="images/shadows/jorge-postit.png" class="sil" id="jorge-postit-shadow" alt="jorge-postit-shadow">
+                <img src="images/shadows/luis-postit.png" class="sil" id="luis-postit-shadow" alt="luis-postit-shadow">
+                <img src="images/shadows/hannah-project.png" class="sil" id="hannah-project-shadow" alt="hannah-project-shadow">
+                <img src="images/shadows/jorge-project.png" class="sil" id="jorge-project-shadow" alt="jorge-project-shadow">
+                <img src="images/shadows/luis-project.png" class="sil" id="luis-project-shadow" alt="luis-project-shadow">
+            </div>
+
+            <!-- Interactable Elements -->
+            <div id="interactable-container">
+                <img src="images/interactables/lost-phone-sign.png" class="interactable" id="lost-sign" alt="lost-sign">
+                <img src="images/interactables/left-phone.png" class="interactable" id="phone" alt="phone">
+                <img src="images/interactables/bunny-ears.png" class="interactable" id="bunny-ears" alt="bunny-ears">
+                <img src="images/interactables/trash-bag.png" class="interactable" id="trash-bag" alt="trash-bag">
+                <img src="images/interactables/janitor-notice.png" class="interactable" id="janitor-notice" alt="janitor-notice">
+                <img src="images/interactables/jorge-book.png" class="interactable" id="jorge-book" alt="jorge-book">
+                <img src="images/interactables/sandberg-report.png" class="interactable" id="sandberg-report" alt="sandberg-report">
+                <img src="images/interactables/halloween-invite.png" class="interactable" id="halloween-invite" alt="halloween-invite">
+                <img src="images/interactables/hammer.png" class="interactable" id="hammer" alt="hammer">
+                <img src="images/interactables/pumpkin-bag.png" class="interactable" id="pumpkin-basket" alt="pumpkin-basket">
+                <img src="images/interactables/door.png" class="interactable" id="door" alt="door">
+                <img src="images/interactables/doorstop.png" class="interactable" id="doorstop" alt="doorstop">
+                <img src="images/interactables/des-122.png" class="interactable" id="des-class" alt="des-class">
+                <img src="images/interactables/do-not-touch.png" class="interactable" id="do-not-touch" alt="do-not-touch">
+                <img src="images/interactables/hannah-postit.png" class="interactable" id="hannah-postit" alt="hannah-postit">
+                <img src="images/interactables/jorge-postit.png" class="interactable" id="jorge-postit" alt="jorge-postit">
+                <img src="images/interactables/luis-postit.png" class="interactable" id="luis-postit" alt="luis-postit">
+                <img src="images/interactables/hannah-project.png" class="interactable" id="hannah-project" alt="hannah-project">
+                <img src="images/interactables/jorge-project.png" class="interactable" id="jorge-project" alt="jorge-project">
+                <img src="images/interactables/luis-project.png" class="interactable" id="luis-project" alt="luis-project">
+            </div>
+            
+            <!-- Image Map -->
+            <map name="image-map">
+                <area id="lost-sign-map" alt="Lost Phone Sign" href="" coords="86,226,87,267,135,269,140,227" shape="poly">
+                <area id="phone-map" alt="Phone?" href="" coords="76,341,110,341,119,357,70,355" shape="poly">
+                <area id="bunny-ears-map" alt="Bunny Ears" href="" coords="142,151,159,141,181,141,194,142,197,156,219,173,233,187,210,192,191,181,178,183,183,195,162,168" shape="poly">
+                <area id="trash-bag-map" alt="Trash Bag" href="" coords="141,328,152,329,151,348,160,359,157,380,173,391,199,378,197,362,202,349,208,345,204,329,176,234,168,231,154,283" shape="poly">
+                <area id="janitor-notice-map" alt="Janitor's Notice" href="" coords="227,233,262,278" shape="rect">
+                <area id="jorge-book-map" alt="Jorge's Notebook" href="" coords="319,335,335,335,352,340,349,355,306,354" shape="poly">
+                <area id="sandberg-report-map" alt="Professor Sandberg's Notes" href="" coords="437,408,469,404,494,421,457,430" shape="poly">
+                <area id="halloween-invite-map" alt="Halloween Party Invitation" href="" coords="508,513,562,542,577,534,591,531,596,524,608,510,556,489,545,493,535,494,525,500" shape="poly">
+                <area id="hammer-map" alt="Hammer" href="" coords="635,404,654,402,662,447,674,453,675,471,651,475,639,459,646,443,645,430" shape="poly">
+                <area id="pumpkin-basket-map" alt="Pumpkin Basket" href="" coords="591,353,596,380,630,381,631,353,616,337,600,335" shape="poly">
+                <area id="door-map" alt="Lab Door" href="" coords="749,154,703,156,711,421,749,419" shape="poly">
+                <area id="doorstop-map" alt="Doorstop" href="" coords="711,472,734,490,749,469,729,459" shape="poly">
+                <area id="des-class-map" alt="Class Label" href="" coords="519,215,520,237,556,235,551,215" shape="poly">
+                <area id="do-not-touch-map" alt="'Do Not Touch' Sign" href="" coords="443,217,445,241,479,241,476,217,462,215" shape="poly">
+                <area id="hannah-postit-map" alt="Hannah Post-It" href="" coords="453,287,456,304,476,303,475,287" shape="poly">
+                <area id="jorge-postit-map" alt="Jorge Post-It" href="" coords="498,288,498,305,521,305,517,288,508,288" shape="poly">
+                <area id="luis-postit-map" alt="Luis Post-It" href="" coords="538,288,538,305,560,304,558,288" shape="poly">
+                <area id="hannah-project-map" alt="Hannah Project (destroyed)" href="" coords="448,273,447,285,476,285,473,274" shape="poly">
+                <area id="jorge-project-map" alt="Jorge Project" href="" coords="488,273,488,287,516,287,513,271" shape="poly">
+                <area id="luis-project-map" alt="Luis Project" href="" coords="524,273,525,288,560,288,557,272,540,274" shape="poly">
+            </map>
+
+            <!-- Tooltip Text -->
+            <p id="tooltip">Tooltip</p>
+
+            <!-- Interactables Overlay -->
+            <article id="overlay">
+                <div id="zoomed-image"></div>
+                <div id="overlay-images"></div>
+                <div id="overlay-text"></div>
+            </article>
+
+            <!-- Darken Background -->
+            <div id="darken"></div>
+
+            <!-- Story Overlay -->
+             <article id="story-overlay">
+                <h2 class="underline rel">Story</h2>
+
+                <h3>On November 1st 2024, Professor Sandberg and his students entered the lab to find it in a state of disarray. Candy was scattered across the floor, random objects were everywhere, and Hannah's project lay on its rack, smashed beyond recognition.</h3>
+
+                <h3>Hannah was furious. She pointed fingers at everyone around her. "Who did this?" she cried, "Which one of you ruined my project?"</h3>
+
+                <h3>Professor Sandberg tried to calm her down. "Calm down Hannah," he consoled, "Yelling won't help us find the culprit. What we need to do is search the room for clues. There are only a few suspects. After all, not many people have access to this room, and the door is locked at night.</h3>
+
+                <h3 class="question">Can you figure out who ruined Hannah's project?</h3>
+
+                <p class="italics">Click anywhere outside this box to close.</p>
+             </article>
+
+             <!-- Case Solved Overlay -->
+              <article id="case-solved-overlay">
+                <h2 class="underline rel green">The case is solved</h2>
+
+                <h3>Upon being confronted by the class, Hannah burst into tears.</h3>
+
+                <h3>"I...I wanted an extension on the project, but the professor wouldn't give it to me," she confessed. "Last night I wasn't thinking clearly and I...made a bad choice."</h3>
+
+                <h3>She took a shaky breath and continued, "I was the last one in the lab last night, and I realized I could turn the situation to my advantage. I scattered the candy to make it look like someone else had done it in a fit of rage."</h3>
+
+                <h3>Professor Sandberg looked around at the messy room, shaking his head. "As your punishment," he declared, "You will spend the next two weeks cleaning up after class."</h3>
+
+                <p class="italics green">Congratulations! You may now proceed onto the next case.</p>
+              </article>
+
+        </section>
+
+        <section id="text">
+            <div id="links">
+                <h2 class="rel"><a href="#" id="story-link">Story</a></h2>
+                <h2 class="rel"><a href="#" id="case-solved-link">Solution</a></h2>
+            </div>
+            
+            <h2>Answer the following questions. Both must be correct in order to validate.</h2>
+
+            <form id="case-questions">
+                <label for="question1">Who left the door open?</label>
+                <select id="question1" name="question1">
+                    <option value="" selected>---</option>
+                    <option value="sandberg">Professor Sandberg</option>
+                    <option value="hannah">Hannah</option>
+                    <option value="jorge">Jorge</option>
+                    <option value="luis">Luis</option>
+                    <option value="russell">Mr Russell</option>
+                </select>
+                <label for="question2">Who destroyed Hannah's project?</label>
+                <select id="question2" name="question2">
+                    <option value="" selected>---</option>
+                    <option value="sandberg">Professor Sandberg</option>
+                    <option value="hannah">Hannah</option>
+                    <option value="jorge">Jorge</option>
+                    <option value="luis">Luis</option>
+                    <option value="russell">Mr Russell</option>
+                </select>
+
+                <br>
+                <div class="button-container">
+                    <button type="submit">Check</button>
+
+                    <a href="#" id="next-case">
+                        <i data-feather="arrow-right"></i>
+                    </a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
