@@ -12,7 +12,7 @@
     {
         "object": "bunny-ears",
         "text": "Bunny ears. They appear to be part of a Halloween costume.",
-        "images": ["bunny-ears.jpg"]
+        "images": ["bunny-ears.JPG"]
     },
     {
         "object": "trash-bag",
