@@ -391,6 +391,14 @@ form button {
     right: 2.5svw;
 }
 
+#sound-icon + p {
+    position: absolute;
+    top: 8svh;
+
+    padding-right: 5px;
+    font-size: 12px;
+}
+
 /* IMAGE Interactivity */
 
 #image {
@@ -612,6 +620,12 @@ form button:hover {
 .fa-xmark:hover {
     transform: scale(1.2);
     transition: transform 0.5s ease;
+}
+
+#sound-icon + p:hover {
+    transform: translateX(-2px);
+    color: #DDA15E;
+    transition: all 0.2s ease;
 }
 
 #sound {
