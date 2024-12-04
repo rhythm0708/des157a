@@ -75,6 +75,11 @@ ul li, ol li {
     line-height: 1.5em;
 }
 
+.bold {
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
 .fas {
     position: absolute;
     top: 6vh;

@@ -231,7 +231,7 @@
     window.addEventListener("load", function(){
         musicPlaying = false;
         soundtrack.loop = true;
-        soundtrack.volume = 0.8;
+        soundtrack.volume = 0.7;
         pageTurn1.volume = 0.8;
         pageTurn2.volume = 0.8;
         pageTurn3.volume = 0.8;
@@ -268,4 +268,4 @@
 // STRETCH GOAL: Add tutorial screen. 
 // STRETCH GOAL: Add timer.
 // STRETCH GOAL: Add 'X' to exit image.
-
+// GOAL: Add link to sources.html.
