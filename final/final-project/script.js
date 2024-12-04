@@ -180,14 +180,18 @@
             zoomedImage.style.width = imgElement.style.width;
             zoomedImage.style.height = imgElement.style.height;
 
-            // Consider adding an 'x' button.
+            // Add an 'x' button.
+            /*const iconElement = document.createElement("i");
+            iconElement.classList.add("fa-solid", "fa-xmark");
+            zoomedImage.appendChild(iconElement);*/
         }
     });
 
     // Click out of overlay.
     mainImg.addEventListener("click", function(){
-        overlayElement.style.display = "none";
-        zoomedImage.style.display = "none";
+        /*overlayElement.style.display = "none";
+        zoomedImage.style.display = "none";*/
+        escapeOverlays();
     });
 
     overlayElement.addEventListener("click", function(e){

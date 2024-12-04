@@ -89,6 +89,10 @@ form button {
     font-style: italic;
 }
 
+.fa-xmark {
+    font-size: 40px;
+}
+
 /* Colors */
 
 body {
@@ -119,6 +123,10 @@ main #main-scene {
 
 svg.feather {
     stroke: #FEFAE0; 
+}
+
+.fa-xmark {
+    color: #283618; 
 }
 
 #darken {
@@ -337,7 +345,7 @@ form button {
 }
 
 #zoomed-image {
-    display: inline;
+    display: none;
     position: absolute;
     z-index: 3;
 
@@ -374,6 +382,13 @@ form button {
     position: absolute;
     bottom: 0;
     right: 80px;
+}
+
+.fa-xmark {
+    position: absolute;
+    z-index: 4;
+    top: 2.5svh;
+    right: 2.5svw;
 }
 
 /* IMAGE Interactivity */
@@ -592,6 +607,11 @@ form button:hover {
     transform: scale(1.1);
     transition: transform 0.5s ease;
     cursor: url(images/focus-cursor.png), auto;
+}
+
+.fa-xmark:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
 }
 
 #sound {
