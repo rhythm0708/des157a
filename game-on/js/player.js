@@ -1,7 +1,7 @@
 class Player {
     constructor(role, sets) {
         this.role = role;
-        this.sets = sets/3;
+        this.sets = Math.floor(sets/3);
         this.cards = [];
         for(let i=0; i<this.sets; i++) {
             this.cards.push(new Card(0));
