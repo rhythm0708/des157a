@@ -1,0 +1,299 @@
+/****** Common Sense Resets *****/
+
+h1, h2, h3, p, nav ul 
+{
+    margin: 0;
+    padding: 5px;
+}
+   
+img 
+{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+   
+nav ul 
+{
+    list-style-type: none;
+}
+
+nav ul a
+{
+    text-decoration: none;
+}
+
+* 
+{
+    box-sizing: border-box;
+}
+
+/***** Typography ******/
+
+body
+{
+    font-family: "Nobile", sans-serif;
+    font-weight: 400;
+}
+
+/***** Header ******/
+
+header
+{
+    background-color: #c697f7;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    padding: 8px 0 8px 25px;
+}
+
+#top-nav ul
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+#top-nav ul li a
+{
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    line-height: 32px;
+
+    font-weight: 700;
+    padding: 5px;
+    color: black;
+}
+
+#top-nav ul li a:hover
+{
+    background-color: blue;
+}
+
+.dropdown
+{
+    display: none;   
+    flex-direction: column;
+
+    position: absolute; 
+    top: 100%;
+    left: 0;
+
+    gap: 10px;
+    padding: 0;
+    background-color: #c697f7;
+}
+
+.dropdown li
+{
+    display: none;
+}
+
+.dropdown li a
+{
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    line-height: 32px;
+    width: 86.25px;
+
+    font-weight: 700;
+    padding: 5px;
+    color: black;
+}
+
+.dropdown-container
+{
+    position: relative;
+}
+
+.dropdown-container:hover .dropdown 
+{
+    display: flex;
+}
+
+.dropdown-container:hover .dropdown li
+{
+    display: block;
+}
+
+header p
+{
+    font-weight: 700;
+    margin-right: 28px;
+    text-align: right;
+}
+
+#favicon
+{
+    display: none;
+}
+
+/***** Body ******/
+
+main
+{
+    background-color: #f5f990;
+
+    padding: 30px 25px;
+}
+
+main h1
+{
+    padding: 0 40px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+main h2
+{
+    padding: 0 40px;
+    padding-bottom: 15px;
+}
+
+main p
+{
+    padding: 0 40px;
+    margin-bottom: 20px;
+
+    line-height: 1.5em;
+}
+
+main span
+{
+    font-style: italic;
+}
+
+/***** Footer ******/
+
+footer
+{
+    background-color: #5ecc9f;
+
+    display: flex;
+    flex-direction: column;
+}
+
+footer div
+{
+    margin: 20px 0 10px 40px;
+}
+
+#copyright
+{
+    font-size: 14px;
+    font-style: italic;
+}
+
+footer ul
+{
+    list-style-type: none;
+}
+
+footer ul li
+{
+    text-decoration: none;
+}
+
+footer a:visited
+{
+    color: inherit;
+}
+
+#contact-list
+{
+    padding: 5px;
+}
+
+#share-icons
+{
+    display: flex;
+    align-items: center;
+
+    font-size: 20px;
+
+    gap: 30px;
+    padding-left: 10px;
+    margin: 20px 0;
+}
+
+#share-icons a:visited
+{
+    color: inherit;
+}
+
+#share-icons a:hover i
+{
+    transform: translateY(-5px);
+}
+
+/*****Responsive Design******/
+
+@media screen and (min-width:600px)
+{
+    #top-nav ul
+    {
+        gap: 40px;
+    }
+
+    #top-nav .dropdown
+    {
+        gap: 10px;
+    }
+
+    #favicon
+    {
+        display: block;
+        padding-right: 10px;
+        margin-left: auto;
+    }
+
+    .options-6
+    {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 20px;
+    }
+
+    .options-4
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 20px;
+    }
+
+    .options-3
+    {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    footer
+    {
+        flex-direction: row;
+
+        justify-items: center;
+        align-items: center;
+    }
+
+    #copyright
+    {
+        flex: 5;
+    }
+
+    #contact
+    {
+        flex: 2;
+    }
+
+    #share
+    {
+        flex: 2;
+    }
+}

@@ -1,0 +1,364 @@
+/****** Common Sense Resets *****/
+
+h1, h2, h3, p, nav ul 
+{
+    margin: 0;
+    padding: 5px;
+}
+   
+img 
+{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+   
+nav ul 
+{
+    list-style-type: none;
+}
+
+nav ul a
+{
+    text-decoration: none;
+}
+
+* 
+{
+    box-sizing: border-box;
+}
+
+/***** Typography ******/
+
+body
+{
+    font-family: "Nobile", sans-serif;
+    font-weight: 400;
+}
+
+/***** Header ******/
+
+header
+{
+    background-color: #f5f990;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    padding: 8px 0 8px 25px;
+}
+
+#top-nav ul
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+#top-nav ul li a
+{
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    line-height: 32px;
+
+    font-weight: 700;
+    padding: 5px;
+    color: black;
+}
+
+#top-nav ul li a:hover
+{
+    background-color: blue;
+}
+
+.dropdown
+{
+    display: none;   
+    flex-direction: column;
+
+    position: absolute; 
+    top: 100%;
+    left: 0;
+
+    padding: 0;
+    gap: 10px;
+    background-color: #f5f990;
+}
+
+.dropdown li
+{
+    display: none;
+}
+
+.dropdown li a
+{
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    line-height: 32px;
+    width: 86.25px;
+
+    font-weight: 700;
+    padding: 5px;
+    color: black;
+}
+
+.dropdown-container
+{
+    position: relative;
+}
+
+.dropdown-container:hover .dropdown 
+{
+    display: flex;
+}
+
+.dropdown-container:hover .dropdown li
+{
+    display: block;
+}
+
+header p
+{
+    font-weight: 700;
+    margin-right: 28px;
+    text-align: right;
+}
+
+#favicon
+{
+    display: none;
+}
+
+/***** Body ******/
+
+main
+{
+    background-color: #5ecc9f;
+    padding: 25px 0;
+}
+
+main p
+{
+    width: 90%;
+    font-size: 18px;
+    line-height: 1.5em;
+}
+
+main p:last-of-type
+{
+    margin-bottom: 20px;
+}
+
+#results
+{
+    background-color: #c697f7;
+
+    width: 80%;
+    border-radius: 40px;
+
+    padding: 20px;
+    margin: auto;
+}
+
+#results h2
+{
+    font-size: 24px;
+    padding: 25px 25px 15px 30px;
+}
+
+#reveal
+{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#reveal h2
+{
+    padding-left: 35px;
+}
+
+#reveal img
+{
+    border-radius: 10px;
+    margin: 15px 0 20px 0;
+}
+
+#reveal h3
+{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#description
+{
+    display: flex;
+    justify-content: center;
+}
+
+#description p
+{
+    padding: 0;
+}
+
+.links
+{
+    padding-left: 35px;
+
+    display: flex;
+    flex-direction: column;
+    
+    width: 90%;
+}
+
+.links ul
+{
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.links ul li a
+{
+    line-height: 1.5em;
+}
+
+#return-buttons
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+#return-buttons button:hover
+{
+    background-color: rgb(34, 34, 34);
+}
+
+button
+{
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+
+    padding: 10px 35px;
+
+    cursor: pointer;
+}
+
+button span
+{
+    text-decoration: none;
+    color: white;
+}
+
+/***** Footer ******/
+
+footer
+{
+    background-color: #f5f990;
+
+    display: flex;
+    flex-direction: column;
+}
+
+footer div
+{
+    margin: 20px 0 10px 40px;
+}
+
+footer ul
+{
+    list-style-type: none;
+}
+
+footer ul li
+{
+    text-decoration: none;
+}
+
+footer a:visited
+{
+    color: inherit;
+}
+
+#copyright
+{
+    font-size: 14px;
+    font-style: italic;
+}
+
+#contact-list
+{
+    padding: 5px;
+}
+
+#share-icons
+{
+    display: flex;
+    align-items: center;
+
+    font-size: 20px;
+
+    gap: 30px;
+    padding-left: 10px;
+    margin: 20px 0;
+}
+
+#share-icons a:visited
+{
+    color: inherit;
+}
+
+#share-icons a:hover i
+{
+    transform: translateY(-5px);
+}
+
+/*****Responsive Design******/
+
+@media screen and (min-width:600px)
+{
+    #top-nav ul
+    {
+        gap: 40px;
+    }
+
+    #top-nav .dropdown
+    {
+        gap: 10px;
+    }
+
+    #favicon
+    {
+        display: block;
+        padding-right: 10px;
+        margin-left: auto;
+    }
+
+    footer
+    {
+        flex-direction: row;
+
+        justify-items: center;
+        align-items: center;
+    }
+
+    #copyright
+    {
+        flex: 5;
+    }
+
+    #contact
+    {
+        flex: 2;
+    }
+
+    #share
+    {
+        flex: 2;
+    }
+}

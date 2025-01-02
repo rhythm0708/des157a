@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gamer Personality Quiz by rhythm07</title>
+
+    <!-- Normalize CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+	
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">	
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	
+	<!-- My Styles -->
+	<link href="styles.css" rel="stylesheet">
+
+	<!-- My Script -->
+	<script src="index.js"></script>
+	
+	<!-- Needed for Mobile Devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header>
+		<nav id="top-nav">
+			<ul>
+				<li><a href="../index.html">Start</a></li>
+				<li><a href="../about/index.html">About</a></li>
+				<li class="dropdown-container"><a href="#">Results <i class="fas fa-chevron-down"></i></a>
+				<ul class="dropdown">
+					<li><a href="../results/result1.html">Result 1</a></li>
+					<li><a href="../results/result2.html">Result 2</a></li>
+					<li><a href="../results/result3.html">Result 3</a></li>
+					<li><a href="../results/result4.html">Result 4</a></li>
+					<li><a href="../results/result5.html">Result 5</a></li>
+					<li><a href="../results/result6.html">Result 6</a></li>
+					<li><a href="../results/result7.html">Result 7</a></li>
+					<li><a href="../results/result8.html">Result 8</a></li>
+					<li><a href="../results/result9.html">Result 9</a></li>
+				</ul>
+				</li>
+			</ul>
+		</nav>
+
+		<div id="favicon">
+			<img src="../images/icon4.svg" alt="favicon" width="50">
+		</div>
+
+		<p>The Gamer Personality Quiz</p>
+	</header>
+
+	<main>
+		<div id="main-container">
+			<h2>Let's find a game that's right for you!</h2>
+
+		<div id="quiz-container">
+			<div class="question">
+				<div class="q">
+					<img src="../images/number1.svg" alt="number 1" width="18">
+					<p>When playing a game, how do you want to feel?</p>
+				</div>
+
+				<div class="options-6">
+					<button class="option" data-scores="[2,1,0,0,0,1,2,1,2]"><span>Like I'm part of a team</span></button>
+					<button class="option" data-scores="[2,2,0,1,2,0,2,2,0]"><span>Immersed</span></button>
+					<button class="option" data-scores="[2,0,1,0,0,0,2,0,1]"><span>Smart</span></button>
+					<button class="option" data-scores="[1,2,1,0,0,1,2,2,0]"><span>Awesome</span></button>
+					<button class="option" data-scores="[0,0,2,2,0,0,0,0,1]"><span>Relaxed</span></button>
+					<button class="option" data-scores="[2,1,0,2,2,0,2,2,0]"><span>Like I'm having new experiences</span></button>
+				</div>
+			</div>
+
+			<div class="question">
+				<div class="q">
+					<img src="../images/number2.svg" alt="number 2" width="24">
+					<p>Do you work well under pressure?</p>
+				</div>
+				
+				<div class="options-4">
+					<button class="option" data-scores="[1,0,2,2,0,0,0,0,1]"><span>Not at all!</span></button>
+					<button class="option" data-scores="[0,0,1,1,0,0,0,0,0]"><span>I do alright, but I don't like it.</span></button>
+					<button class="option" data-scores="[1,1,1,0,1,1,1,1,1]"><span>I work well.</span></button>
+					<button class="option" data-scores="[2,2,0,0,2,1,2,1,0]"><span>I work well and I love the feeling!</span></button>
+				</div>
+			</div>
+			
+			<div class="question">
+				<div class="q">
+					<img src="../images/number3.svg" alt="number 3" width="24">
+					<p>When do you usually play games?</p>
+				</div>
+				
+				<div class="options-4">
+					<button class="option" data-scores="[1,2,0,1,1,1,2,2,1]"><span>When my friends want to play</span></button>
+					<button class="option" data-scores="[0,0,2,0,0,1,0,0,1]"><span>During breaks at school or work</span></button>
+					<button class="option" data-scores="[0,1,0,1,1,2,2,0,2]"><span>At hangouts, reunions, or gatherings</span></button>
+					<button class="option" data-scores="[2,2,0,2,1,0,0,1,0]"><span>All day, every day!</span></button>
+				</div>
+			</div>
+
+			<div class="question">
+				<div class="q">
+					<img src="../images/number4.svg" alt="number 4" width="24">
+					<p>How much time a week do you want to devote to games?</p>
+				</div>
+
+				<div class="options-4">
+					<button class="option" data-scores="[0,0,2,1,0,0,0,0,1]"><span>1-2 hours per day</span></button>
+					<button class="option" data-scores="[2,2,0,2,0,1,0,2,0]"><span>5-6 hours per day</span></button>
+					<button class="option" data-scores="[0,1,1,1,0,2,1,2,1]"><span>A few hours per week</span></button>
+					<button class="option" data-scores="[0,0,0,0,2,0,2,0,0]"><span>Only occasionally, as a treat</span></button>
+				</div>
+			</div>
+
+			<div class="question">
+				<div class="q">
+					<img src="../images/number5.svg" alt="number 5" width="23">
+					<p>How much are you willing to spend on games?</p>
+				</div>
+				
+				<div class="options-4">
+					<button class="option" data-scores="[2,0,2,0,0,0,0,0,0]"><span>I prefer free games</span></button>
+					<button class="option" data-scores="[1,0,2,2,0,0,0,1,1]"><span>About $20 per experience</span></button>
+					<button class="option" data-scores="[1,2,0,0,0,1,1,0,2]"><span>About $50 per experience</span></button>
+					<button class="option" data-scores="[0,1,0,0,2,2,2,0,1]"><span>Over $50 per experience</span></button>
+				</div>
+			</div>
+
+			<div class="question">
+				<div class="q">
+					<img src="../images/number6.svg" alt="number 6" width="23">
+					<p>Do you like going outdoors?</p>
+				</div>
+				
+				<div class="options-3">
+					<button class="option" data-scores="[2,2,1,2,1,0,0,0,0]"><span>No, I'm a total homebody</span></button>
+					<button class="option" data-scores="[1,0,0,0,2,1,2,0,0]"><span>Yes, but only to other indoor locations</span></button>
+					<button class="option" data-scores="[0,0,1,0,0,2,0,0,0]"><span>Yes, I love the outdoors!</span></button>
+				</div>
+			</div>
+
+			<div class="question">
+				<div class="q">
+					<img src="../images/number7.svg" alt="number 7" width="21">
+					<p>Which one of these groups would you rather spend time with?</p>
+				</div>
+
+				<div class="options-4">
+					<button class="option" data-scores="[0,2,2,1,0,0,0,0,0]"><span>Pet</span></button>
+					<button class="option" data-scores="[0,0,0,0,1,2,2,1,2]"><span>Family</span></button>
+					<button class="option" data-scores="[1,2,0,2,0,2,2,2,2]"><span>Close friends</span></button>
+					<button class="option" data-scores="[2,0,0,0,0,1,2,2,1]"><span>Big social groups</span></button>
+				</div>
+			</div>
+
+			<div class="question">
+				<div class="q">
+					<img src="../images/number8.svg" alt="number 8" width="22">
+					<p>In your opinion, what is the meaning of life?</p>
+				</div>
+		
+				<div class="options-4">
+					<button class="option" data-scores="[2,0,0,0,0,1,2,0,0]"><span>To achieve my goals</span></button>
+					<button class="option" data-scores="[1,1,0,2,2,1,2,2,1]"><span>To have as much fun as possible</span></button>
+					<button class="option" data-scores="[2,1,0,0,2,1,2,1,0]"><span>To do everything</span></button>
+					<button class="option" data-scores="[2,1,0,1,0,1,1,2,1]"><span>To meet different people</span></button>
+				</div>
+			</div>
+
+			<div id="submit-container">
+				<button id="submit">
+					<span>Submit</span>
+				</button>
+			</div>
+		</div>
+		</div>
+	</main>
+
+	<footer>
+		<div id="copyright">
+			<p>@2024 Lucas Wang (@rhythm07)</p>
+		</div>
+		
+		<div id="contact">
+			<p>Contact me!</p>
+			<ul id="contact-list">
+				<li><strong>E-mail</strong>: <a href="mailto:&#099;&#119;&#119;&#097;&#110;&#103;&#048;&#051;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#099;&#119;&#119;&#097;&#110;&#103;&#048;&#051;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a></li>
+				<li><strong>Instagram</strong>: @rhythm0708</li>
+				<li><strong>Discord</strong>: @rhythm07</li>
+			</ul>
+		</div>
+		
+		<div id="share">
+			<p>Share with your friends!</p>
+			<ul id="share-icons">
+				<li><a href="https://github.com/airmessage"><i class="fas fa-comment"></i></a></li>
+				<li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+				<li><a href="https://x.com/home"><i class="fab fa-twitter"></i></a></li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

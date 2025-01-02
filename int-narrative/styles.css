@@ -1,0 +1,178 @@
+/****** Common Sense Resets *****/
+
+h1, h2, h3, p, nav ul 
+{
+    margin: 0;
+    padding: 5px;
+}
+   
+img 
+{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+   
+nav ul 
+{
+    list-style-type: none;
+}
+
+* 
+{
+    box-sizing: border-box;
+}
+
+/***** Typography ******/
+
+body
+{
+    font-family: "Nobile", sans-serif;
+    font-weight: 400;
+}
+
+h1
+{
+    font-weight: 700;
+}
+
+/***** Body ******/
+
+body
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.left-col
+{
+    background-color: #f5f990;
+    flex: 1;
+}
+
+h1
+{
+    font-size: 36px;
+
+    padding: 15px 10px;
+    margin: 30px auto 0px auto;
+    text-align: center;
+}
+
+h1 + #name p
+{
+    padding-top: 5px;
+}
+
+.left-col #name
+{
+    display: flex;
+    justify-content: flex-end;
+
+    text-align: right;
+    font-style: italic;
+
+    padding-top: 0;
+    margin-right: 20px;
+}
+
+.left-col #description
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 10px 0;
+}
+
+body p
+{
+    font-size: 18px;
+
+    padding: 10px 30px;
+    line-height: 2em;
+}
+
+body p:not(body footer p, button p)
+{
+    width: 85%;
+}
+
+body a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+body button
+{
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+
+    display: block;
+    margin: 15px auto 0;
+    padding: 8px 40px;
+
+    cursor: pointer;
+}
+
+body button:hover
+{
+    background-color: rgb(48, 48, 48);
+}
+
+body button span
+{
+    color: white;
+    display: block;
+
+    font-size: 18px;
+    line-height: 2em;
+
+    padding: 0;
+}
+
+footer p
+{
+    font-size: 12px;
+
+    display: block;
+    text-align: right;
+
+    margin-right: 20px;
+}
+
+.right-col
+{
+    background-color: #5ecc9f;
+    flex: 1;
+
+    display: grid;
+    place-content: center;
+}
+
+.right-col img
+{
+    margin: 30px auto;
+    animation: rotate-icon 6s ease-in-out infinite;
+}
+
+@keyframes rotate-icon {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+/*****Responsive Design******/
+
+@media screen and (min-width:600px)
+{
+    body
+    {
+        flex-direction: row;
+    }
+}
